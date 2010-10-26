@@ -15,3 +15,78 @@
 #     password: changeme
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
+IStoreCategory:
+  composants:
+    name: Composants
+  ordinateurs:
+    name: Ordinateurs
+  portables:
+    name: Portables
+  ecrans:
+    name: Ecrans
+  peripheriques:
+    name: Peripheriques
+  tv_lcd:
+    name: TV LCD
+  audio_video:
+    name: Audio & Video
+
+  processeur:
+    IStoreCategory: composants
+    name: Processeurs
+  memoire:
+    IStoreCategory: composants
+    name: Mémoires
+  disque_dur:
+    IStoreCategory: composants
+    name: Disques Durs
+  carte_graphique:
+    IStoreCategory: composants
+    name: Cartes Graphiques
+  boitier:
+    IStoreCategory: composants
+    name: Boitiers
+
+  ordinateur_pc:
+    IStoreCategory: ordinateurs
+    name: Ordinateurs PC
+  serveurs:
+    IStoreCategory: ordinateurs
+    name: Serveurs
+  gamme_dell:
+    IStoreCategory: ordinateurs
+    name: Gammes Dell
+  gamme_apple:
+    IStoreCategory: ordinateurs
+    name: Gammes Apple
+
+
+
+IStoreBrand:
+  intel:
+    name: Intel
+    url: http://www.intel.com/
+  amd:
+    name: AMD
+    description: The furtur is fusion
+    url: http://www.amd.com/
+  apple:
+    name: Apple
+    url: http://www.apple.com/fr/
+  nvidia:
+    name: NVIDIA
+    url: http://www.nvidia.fr/
+  blackberry:
+    name: BlackBerry
+    url: http://fr.blackberry.com/
+  canon:
+    name: Canon
+    url: http://www.canon.fr/
+  hitachi:
+    name: Hitachi
+    url: http://www.hitachi.fr/
+    
+
+
+
+
