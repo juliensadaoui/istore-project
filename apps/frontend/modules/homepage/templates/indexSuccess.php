@@ -1,3 +1,4 @@
+<div class="homepage_center_content">
 <div class="editorial">
     <img src="images/p1.png" width="165" height="113" border="0" class="oferta_img" alt="" title="" />
 
@@ -143,6 +144,8 @@
     <a href="details.html" class="prod_details">Details</a>
     </div>
 </div>
+</div>
+
 
 
 

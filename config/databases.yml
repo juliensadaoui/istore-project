@@ -7,4 +7,4 @@ all:
     param:
       dsn:      mysql:host=localhost;dbname=i-store
       username: root
-      password: 
+      password: istore
