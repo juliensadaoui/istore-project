@@ -47,6 +47,13 @@ IStoreCategory:
   boitier:
     IStoreCategory: composants
     name: Boitiers
+  carte_graphique:
+    IStoreCategory: composants
+    name: Carte Graphique
+  carte_wifi:
+    IStoreCategory: composants
+    name: Carte Wifi
+
 #ordinateur
   ordinateur_pc:
     IStoreCategory: ordinateurs
@@ -81,21 +88,21 @@ IStoreCategory:
     IStoreCategory: ecrans
     name: LED
 #peripherique
-  carte_graphique:
+  scanner:
     IStoreCategory: peripheriques
-    name: Carte Graphique
-  carte_wifi:
-    IStoreCategory: peripheriques
-    name: Carte Wifi
-  ram:
-    IStoreCategory: peripheriques
-    name: Mémoire RAM
+    name: Scanners
   imprimante:
     IStoreCategory: peripheriques
     name: Imprimantes
-  processeur:
+  clavier_souris:
     IStoreCategory: peripheriques
-    name: Processeurs
+    name: Clavier & Souris
+  webcam:
+    IStoreCategory: peripheriques
+    name: Webcams
+  onduleur:
+    IStoreCategory: peripheriques
+    name: Onduleurs
 #tv_lcd
   tv_samsung:
     IStoreCategory: tv_lcd

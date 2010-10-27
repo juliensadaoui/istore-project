@@ -1,6 +1,9 @@
-<div class="homepage_center_content">
+<div class="homepage_content">
 <div class="editorial">
-    <img src="images/p1.png" width="165" height="113" border="0" class="oferta_img" alt="" title="" />
+    <div class="homepage_title">
+        <h2>Editorial</h2>
+    </div>
+    <img src="images/editorial_img.png" width="300" height="150" border="0" class="editorial_img" alt="" title="" />
 
     <div class="editorial_details">
         <div class="editorial_title">I-Store - Le meilleur du High-Tech dans notre boutique </div>
@@ -11,8 +14,10 @@
     </div>
 </div>
 
-
-<h2>Latest Products</h2>
+    <div class="homepage_title">
+        <h2>Latest Products</h2>
+    </div>
+    
 
 <div class="prod_box">
 
@@ -99,8 +104,9 @@
     <a href="details.html" class="prod_details">Details</a>
     </div>
 </div>
-
-<h2>Recomended Products</h2>
+<div class="homepage_title">
+    <h2>Recomended Products</h2>
+</div>
 
 <div class="prod_box">
 

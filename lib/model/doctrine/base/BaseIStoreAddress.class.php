@@ -28,7 +28,7 @@
  * @method IStoreAddress  setCountry()        Sets the current record's "country" value
  * @method IStoreAddress  setIStoreCustomer() Sets the current record's "IStoreCustomer" value
  * 
- * @package    i-store
+ * @package    symfony
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

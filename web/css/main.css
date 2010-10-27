@@ -18,6 +18,8 @@ p{
     margin:auto;
     padding:0px;
     background-color:#FFFFFF;
+    -moz-box-shadow:0 0 5px #000;
+    border: 0 none;
 }
 #header{
     width:1000px;
@@ -90,7 +92,7 @@ form fieldset {
 	margin-top:25px;
 }
 #search input.box {
-	background:url(/images/champ_recherche.png) no-repeat scroll left top #FFFFFF;
+	background:url(/images/icon_search.gif) no-repeat scroll left top #FFFFFF;
 	border:medium none;
 	color:#525454;
 	font-size:1.2em;
@@ -135,7 +137,7 @@ input {
 	padding-top:4px;
 }
 #search input.box {
-	background:url(/images/small_icon_search.gif) no-repeat scroll left top #FFFFFF;
+	background:url(/images/icon_search.gif) no-repeat scroll left top #FFFFFF;
 	border:medium none;
 	color:#525454;
 	font-size:1.2em;
@@ -205,7 +207,7 @@ width:980px;
 height:15px;
 padding:5px 10px 0 20px;
 color:#333333;
-background:url(images/navbullet.png) no-repeat left;
+background:url(/images/navbullet.png) no-repeat left;
 background-position:5px 8px;
 }
 .crumb_navigation a{
@@ -217,12 +219,19 @@ color:#0fa0dd;
 }
 
 
-/*center content--------------------------*/
-.center_content{
+/*----------------content--------------------------*/
+.content {
+    font-size:1.25em;
+    padding:0;
+    float:left;
+}
+
+.center_content {
     width:600px;
     float:left;
     padding:5px 10px 5px 15px;
 }
+
 .center_title_bar{
     width:575px;
     height:31px;
@@ -236,30 +245,12 @@ color:#0fa0dd;
     background:url(/images/bar_bg.gif) no-repeat center;
 }
 
-.center_content h2
-{
-    font-size:185%;
-    font-weight:bold;
-    margin:0 0 0.35em 0;
-    border-bottom:1px solid #DDDDDD;
-    padding-bottom:2px;
-    color:#E47911;
-    padding:0;
-    vertical-align:baseline;
-}
-
-h3 {
-    font-size:125%;
-    font-weight:bold;
-    margin:0 0 0.35em 0;
-    border-bottom:1px solid #DDDDDD;
-    padding-bottom:2px;
-    color:#E47911;
-    padding:0;
-    vertical-align:baseline;
 
 
-}
+
+
+
+
 
 /*-------------left_content------------------*/
 .left_content{
@@ -302,10 +293,10 @@ color:#000; text-decoration:underline;
 }
 
 .border_box{
-width:280px;
+width:180px;
 height:auto;
 text-align:center;
-background:url(images/box_bottom_bg.gif) no-repeat center bottom;
+/*background:url(/images/box_bottom_bg.gif) no-repeat center bottom;*/
 }
 .product_title{
 color:#ff8a00;
@@ -357,46 +348,11 @@ width:180px;
 text-align:center;
 padding:10px 0 10px 0;
 }
-/*--------------oferta------------------*/
-.editorial{
-    width:800px;
-    height:156px;
-    background:url(/images/slider_bg.gif) no-repeat center;
-    float:left;
-    padding:0px;
-    margin:0 0 5px 5px;
-}
-.oferta_img{
-    float:left;
-    padding:10px 0 0 10px;
-}
-.editorial_title{
-    font-size:15px;
-    ;color:#159dcc;
-    color: black;
-    font-weight:bold;
-}
-.editorial_details{
-    width:340px;
-    float:left;
-    padding:20px 0 0 30px;
-}
-.editorial_text{
-    padding:5px 0 5px 0;
-    font-size:12px;
-    color:black;
-    text-align:justify;
-    line-height:15px;
-}
+
 /*center content--------------------------*/
-.homepage_center_content{
-    width:700px;
-    float:left;
-    padding:10px 10px 5px 30px;
-}
 
 .center_content{
-width:750px;
+width:600px;
 float:left;
 padding:5px 10px 5px 15px;
 }
@@ -417,7 +373,7 @@ background:url(/images/bar_bg.gif) no-repeat center;
 .right_content{
 width:180px;
 float:left;
-padding:0px;
+padding:20px 0 20px 0;
 }
 /*---------prod_box----------*/
 .prod_box{
@@ -601,7 +557,7 @@ color:#1c4a52;
 width:1000px;
 clear:both;
 height:65px;
-background:url(images/footer_bg.gif) repeat-x top;
+background:url(/images/footer_bg.gif) repeat-x top;
 }
 .left_footer{
 float:left;

@@ -40,7 +40,7 @@
  * @method IStoreItem          setIStoreBrand()    Sets the current record's "IStoreBrand" value
  * @method IStoreItem          setIStoreComments() Sets the current record's "IStoreComments" collection
  * 
- * @package    i-store
+ * @package    symfony
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

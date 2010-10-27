@@ -45,21 +45,21 @@
               </div>
           </div>
 
-          <div id="main_content">
-            <?php include_component('menu', 'main'/*, array('selected_category' => $sf_user->getFlash('selected_category',''))*/); ?>
+          <div id="content">
+                <?php include_component('menu', 'main'/*, array('selected_category' => $sf_user->getFlash('selected_category',''))*/); ?>
 
-
+<!--
           <div class="crumb_navigation">
                 Navigation: <span class="current">Home</span>
 
-          </div>
+          </div>-->
 
 
-            <div class="center_content">
+<!--            <div class="center_content">-->
                 <?php echo $sf_content ?>
-            </div><!-- end of center content -->
+<!--            </div> end of center content -->
 
-            <?php include_component('menu', 'right'); ?>
+                <?php include_component('menu', 'right'); ?>
 
             </div>
 

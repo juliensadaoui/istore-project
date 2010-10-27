@@ -1,0 +1,76 @@
+/* 
+    Document   : homepage
+    Created on : 27 oct. 2010, 10:45:05
+    Author     : julien
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*---------------------- Homepage ----------------------*/
+.homepage_content {
+    float:left;
+    width:750px;
+    height:100%;
+    padding:20px 30px 20px 28px;
+}
+
+.homepage_title {
+    margin-bottom: 20px;
+}
+
+.homepage_content h2
+{
+    font-size:185%;
+    font-weight:bold;
+    border-bottom:1px solid #DDDDDD;
+    margin: 0;
+    color:#E47911;
+    vertical-align:baseline;
+}
+
+
+h3 {
+    font-size:125%;
+    font-weight:bold;
+    margin:0 0 0.35em 0;
+    border-bottom:1px solid #DDDDDD;
+    padding-bottom:2px;
+    color:#E47911;
+    padding:0;
+    vertical-align:baseline;
+}
+
+/*--------------editorial------------------*/
+.editorial {
+    height:180px;
+    padding-bottom: 30px;
+/*    background:url(/images/editorial.jpg) no-repeat center;*/
+}
+.editorial_img{
+    float: left;
+    padding:10px 0 0 10px;
+}
+.editorial_details{
+    float: left;
+    width:400px;
+    padding: 30px 10px 0 10px;
+}
+.editorial_title{
+    font-size:15px;
+    ;color:#159dcc;
+    color: black;
+    font-weight:bold;
+}
+.editorial_text{
+    padding:5px 0 5px 0;
+    font-size:12px;
+    color:black;
+    text-align:justify;
+    line-height:15px;
+}
+

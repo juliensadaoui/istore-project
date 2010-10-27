@@ -34,7 +34,7 @@
  * @method IStoreCustomer      setDateOfBirth()     Sets the current record's "date_of_birth" value
  * @method IStoreCustomer      setIStoreAddresses() Sets the current record's "IStoreAddresses" collection
  * 
- * @package    i-store
+ * @package    symfony
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
