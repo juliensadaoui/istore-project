@@ -31,6 +31,7 @@ IStoreCategory:
   audio_video:
     name: Audio & Video
 
+#composants
   processeur:
     IStoreCategory: composants
     name: Processeurs
@@ -46,7 +47,7 @@ IStoreCategory:
   boitier:
     IStoreCategory: composants
     name: Boitiers
-
+#ordinateur
   ordinateur_pc:
     IStoreCategory: ordinateurs
     name: Ordinateurs PC
@@ -59,7 +60,62 @@ IStoreCategory:
   gamme_apple:
     IStoreCategory: ordinateurs
     name: Gammes Apple
-
+#portables
+  packardbell_port:
+    IStoreCategory: portables
+    name: Portables Packard Bell
+  hp_port:
+    IStoreCategory: portables
+    name: Portables HP
+  dell_port:
+    IStoreCategory: portables
+    name: Portables Dell
+  apple_port:
+    IStoreCategory: portables
+    name: Portables Apple
+#ecrans
+  lcd_ecran:
+    IStoreCategory: ecrans
+    name: LCD
+  led_ecran:
+    IStoreCategory: ecrans
+    name: LED
+#peripherique
+  carte_graphique:
+    IStoreCategory: peripheriques
+    name: Carte Graphique
+  carte_wifi:
+    IStoreCategory: peripheriques
+    name: Carte Wifi
+  ram:
+    IStoreCategory: peripheriques
+    name: Mémoire RAM
+  imprimante:
+    IStoreCategory: peripheriques
+    name: Imprimantes
+  processeur:
+    IStoreCategory: peripheriques
+    name: Processeurs
+#tv_lcd
+  tv_samsung:
+    IStoreCategory: tv_lcd
+    name: Ecran Télévision Samsung
+  tv_lg:
+    IStoreCategory: tv_lcd
+    name: Ecran Télévision Orion
+  tv_lg:
+    IStoreCategory: tv_lcd
+    name: Ecran Télévision LG
+#audio_video
+  lecteur_dvd:
+    IStoreCategory: audio_video
+    name: Lecteur DVD
+  lecteur_bluray:
+    IStoreCategory: audio_video
+    name: Lecteur BlueRay
+  chaine_hifi:
+    IStoreCategory: audio_video
+    name: Chaine Hifi
 
 
 IStoreBrand:
