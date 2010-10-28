@@ -87,6 +87,9 @@ IStoreCategory:
   led_ecran:
     IStoreCategory: ecrans
     name: LED
+  crt_ecran:
+    IStoreCategory: ecrans
+    name: CRT
 #peripherique
   scanner:
     IStoreCategory: peripheriques
