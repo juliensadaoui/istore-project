@@ -107,12 +107,15 @@ IStoreCategory:
   tv_samsung:
     IStoreCategory: tv_lcd
     name: Ecran Télévision Samsung
-  tv_lg:
+  tv_orion:
     IStoreCategory: tv_lcd
     name: Ecran Télévision Orion
   tv_lg:
     IStoreCategory: tv_lcd
     name: Ecran Télévision LG
+  tv_autre:
+    IStoreCategory: tv_lcd
+    name: Ecran Télévision Autres
 #audio_video
   lecteur_dvd:
     IStoreCategory: audio_video
