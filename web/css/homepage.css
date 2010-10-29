@@ -22,29 +22,6 @@
 .homepage_title {
     margin-bottom: 20px;
 }
-
-.homepage_content h2
-{
-    font-size:185%;
-    font-weight:bold;
-    border-bottom:1px solid #DDDDDD;
-    margin: 0;
-    color:#E47911;
-    vertical-align:baseline;
-}
-
-
-h3 {
-    font-size:125%;
-    font-weight:bold;
-    margin:0 0 0.35em 0;
-    border-bottom:1px solid #DDDDDD;
-    padding-bottom:2px;
-    color:#E47911;
-    padding:0;
-    vertical-align:baseline;
-}
-
 /*--------------editorial------------------*/
 .editorial {
     height:180px;

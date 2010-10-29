@@ -6,12 +6,12 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
+   title:        iStore - Le meilleur du High-Tech dans notre boutique
     #description:  symfony project
     #keywords:     symfony, project
     #language:     en
     #robots:       index, follow
-
+  
   stylesheets:    [main.css, menu.css]
 
   javascripts:    []

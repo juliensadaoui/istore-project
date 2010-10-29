@@ -19,3 +19,10 @@ default_index:
 
 default:
   url:   /:module/:action/*
+
+
+category:
+    url: /category/:name
+    param: { module: item, action: list }
+    requirements:
+      id: \d+

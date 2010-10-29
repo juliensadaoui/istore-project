@@ -1,0 +1,126 @@
+/* 
+    Document   : items
+    Created on : 28 oct. 2010, 01:05:43
+    Author     : julien
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#items
+{
+    float: left;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.items
+{
+    width: 760px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+.items tr.header
+{
+  border: none 0;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  text-transform:uppercase;
+}
+
+.items tr.header th
+{
+/*  border-bottom:5px solid #515151;*/
+  border-right:1px solid #515151;
+}
+
+.items td.headerline
+{
+  background: #515151;
+  border-right:2px solid #fff;
+  height: 7px;
+}
+
+.items tr.even
+{
+  background-color: #f3fafc;
+}
+
+.items tr.odd
+{
+  background-color: #f0f4f5;
+}
+
+.items tr:hover
+{
+  background-color: #fff;
+}
+
+.items td
+{
+  border-bottom: 1px solid #999;
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
+.items td.brand,
+.items td.name,
+.items td.prix,
+.items td.stock
+{
+  border-right: 1px dotted #999;
+}
+
+.items .image
+{
+   background-color: white;
+   border-right: 2px solid #999;
+}
+
+.items .brand
+{
+  width: 30%;
+  text-align: center;
+}
+
+.items .name
+{
+  width: 30%;
+}
+
+.items .name a
+{
+  color: #E47911;
+  text-decoration:none;
+}
+
+.items .prix
+{
+  color: red;
+  width: 15%;
+  text-align: center;
+}
+
+
+.items .stock
+{
+  width: 15%;
+  text-align: center;
+}
+
+.items .panier
+{
+    width: 10%;
+    text-align: center;
+}
