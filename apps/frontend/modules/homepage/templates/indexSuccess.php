@@ -1,3 +1,7 @@
+<div class="crumb_navigation">
+    Navigation: <span class="current">Home</span>
+</div>
+
 <div class="homepage_content">
 <div class="editorial">
     <div class="homepage_title">
@@ -152,7 +156,4 @@
 </div>
 </div>
 
-
-
-
- 
+<?php include_component('menu', 'right'); ?>

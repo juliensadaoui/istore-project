@@ -3,7 +3,9 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
+    <?php if (!include_slot('title')): ?>
+        <?php include_title() ?>
+    <?php endif; ?>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
@@ -21,7 +23,7 @@
                         <!-- <li>|</li>
                         <li><a href="/Accueil/Aide/">Aide</a></li> -->
                   </ul>
-
+                  
                   <div class="clear">
                       <div class="shopping_cart">
                           <div class="cart_details">3 items <br />
@@ -30,7 +32,7 @@
 
 			<div class="cart_icon">
                             <a href="#" title="">
-                                <img src="images/shoppingcart.png" alt="" title="" width="35" height="35" border="0" />
+                                <img src="/images/shoppingcart.png" alt="" title="" width="35" height="35" border="0" />
                             </a>
                         </div>
 		</div>
@@ -43,6 +45,15 @@
                 </form>
 			</div>
               </div>
+
+
+             <div id="logo">
+                 <a href="<?php echo url_for('@homepage') ?>">
+                    <img src="/images/logo.png" alt="" title="" border="0" width="182" height="85" />
+                 </a>
+
+                <a href="index.html"></a>
+	    </div>
           </div>
 
           <div id="content">
@@ -59,8 +70,6 @@
                 <?php echo $sf_content ?>
 <!--            </div> end of center content -->
 
-                <?php include_component('menu', 'right'); ?>
-
             </div>
 
 
@@ -68,7 +77,7 @@
 
         <div class="footer">
             <div class="left_footer">
-                <img src="images/footer_logo.png" alt="" title="" width="89" height="42"/>
+                <img src="/images/logo.png" alt="" title="" width="89" height="42"/>
             </div>
 
             <div class="center_footer">

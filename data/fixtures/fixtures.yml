@@ -222,5 +222,37 @@ IStoreItem:
     IStoreBrand: dwa
 
 
+IStoreItem:
+#  intel_i7_950:
+#    name: Intel® Core™ i7 950
+#    description: |
+#      Derniers nés du géant Intel, les processeurs Core™ i7 débarquent avec leurs lots de nouveautés ! Ces nouveaux processeurs sont dotés de 4 cœurs multithreadés, imaginez la puissance de calcul de 8 processeurs dans votre configuration !
+#      Adieu le FSB, bonjour le QPI !
+#
+#      Grâce à la technologie QPI (QuickPath Interconnect), le bus connectant les processeurs au chipset n'est plus partagé. Les 4 coeurs de votre processeur communiquent donc plus rapidement et plus efficacement jusqu'à une vitesse de 6,4 GT/S, équivalent à une bande passante de 25 Gigabyte/secondes !
+#      Contrôleur mémoire intégré
+#
+#      La nouvelle architecture des Core™ i7 intègre le contrôleur mémoire au sein-même du processeur. Ajoutez à cela une gestion de la mémoire triple-canal et un lien par le fameux bus QPI, la bande passante mémoire atteint des sommets pour des performances exceptionnelles !
+#    unit_cost: 278,99
+#    IStoreBrand: intel
+#    IStoreCategory: processeur
 
 
+# Démarrez au début de la ligne (pas d'espace avant)
+<?php for ($i = 0; $i < 10; $i++): ?>
+  item_<?php echo $i; ?>:
+    name: Intel® Core™ i7 9<?php echo $i; ?>0<?php echo "\n"; ?>
+    description: |
+      Derniers nés du géant Intel, les processeurs Core™ i7 débarquent avec leurs lots de nouveautés ! Ces nouveaux processeurs sont dotés de 4 cœurs multithreadés, imaginez la puissance de calcul de 8 processeurs dans votre configuration !
+      Adieu le FSB, bonjour le QPI !
+
+      Grâce à la technologie QPI (QuickPath Interconnect), le bus connectant les processeurs au chipset n'est plus partagé. Les 4 coeurs de votre processeur communiquent donc plus rapidement et plus efficacement jusqu'à une vitesse de 6,4 GT/S, équivalent à une bande passante de 25 Gigabyte/secondes !
+      Contrôleur mémoire intégré
+
+      La nouvelle architecture des Core™ i7 intègre le contrôleur mémoire au sein-même du processeur. Ajoutez à cela une gestion de la mémoire triple-canal et un lien par le fameux bus QPI, la bande passante mémoire atteint des sommets pour des performances exceptionnelles !
+    unit_cost: 2<?php echo $i; ?>8.99<?php echo "\n"; ?>
+    is_activated: true
+    image: intel
+    IStoreBrand: intel
+    IStoreCategory: processeur
+<?php endfor ?>

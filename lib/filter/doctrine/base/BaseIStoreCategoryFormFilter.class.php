@@ -3,7 +3,11 @@
 /**
  * IStoreCategory filter form base class.
  *
+<<<<<<< HEAD
  * @package    symfony
+=======
+ * @package    i-store
+>>>>>>> ce54ec20e0f7185057f63fc7bb8cc6645b62d79f
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $

@@ -5,7 +5,11 @@
  *
  * @method IStoreComment getObject() Returns the current form's model object
  *
+<<<<<<< HEAD
  * @package    symfony
+=======
+ * @package    i-store
+>>>>>>> ce54ec20e0f7185057f63fc7bb8cc6645b62d79f
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
