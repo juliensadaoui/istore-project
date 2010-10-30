@@ -267,6 +267,8 @@ IStoreItem:
       La nouvelle architecture des Core™ i7 intègre le contrôleur mémoire au sein-même du processeur. Ajoutez à cela une gestion de la mémoire triple-canal et un lien par le fameux bus QPI, la bande passante mémoire atteint des sommets pour des performances exceptionnelles !
     unit_cost: 2<?php echo $i; ?>8.99<?php echo "\n"; ?>
     is_activated: true
+    created_at: '2010-09-03'
+    updated_at: '2010-11-03'
     image: intel
     IStoreBrand: intel
     IStoreCategory: processeur
