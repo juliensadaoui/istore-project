@@ -27,6 +27,13 @@
     padding-top: 20px;
 }
 
+.items_count
+{
+    margin-top: 30px;
+    color:#504B4B;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 .items tr.header
 {
@@ -131,4 +138,5 @@
 {
     width: 10%;
     text-align: center;
+    background-color: white;
 }

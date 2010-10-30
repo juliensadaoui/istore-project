@@ -53,17 +53,13 @@ class IStoreCategory extends BaseIStoreCategory
       return Doctrine_Core::getTable('IStoreItem')->addActiveItemsQuery($q);
     }
 
+    
     public function countActiveItem()
     {
       $q = Doctrine_Query::create()
         ->from('IStoreItem i')
         ->where('i.category_id = ?', $this->getId());
 
-      return Doctrine_Core::getTable('JobeetJob')->countActiveJobs($q);
+      return Doctrine_Core::getTable('IStoreItem')->countActiveItems($q);
     }
-//
-//    public function getSlug()
-//    {
-//        IStore::slugify($this->getName());
-//    }
 }

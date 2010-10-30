@@ -19,141 +19,79 @@
 </div>
 
     <div class="homepage_title">
-        <h2>Latest Products</h2>
+        <h2>Les Nouveautés</h2>
     </div>
+
+
+ <?php foreach ($newsItems as $newsItem): ?>
+
+<div class="item_box">
+    <div class="item_name"><?php echo $newsItem->getName(); ?></div>
+    <div class="content_item_box">
+        <div class="item_image">
+            <a href="<?php echo url_for('item_show_user', $newsItem); ?>">
+                <img src="/images/item/<?php echo $newsItem->getImage(); ?>.jpg" alt="" width="120px" height="120px" />
+            </a>
+        </div>
+        <div class="item_price">
+            <?php echo $newsItem->getUnitCost(); ?>&nbsp;€
+        </div>
+
+        <div class="item_shoppingcart">
+            <form action="">
+                <fieldset>
+                    <input type="submit" value="" class="add_shoppingcart_input" />
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="item_category">
+           <span>>></span> Plus de <?php echo link_to($newsItem->getIStoreCategory(), 'category', $newsItem->getIStoreCategory()); ?>
+        </div>
+    </div>
+</div>
+ <?php endforeach; ?>
+
+
+
+    <div class="homepage_title">
+        <h2>Les baisses de Prix</h2>
+    </div>
+
+
+ <?php   foreach ($updatedItems as $updatedItem): ?>
+
+<div class="item_box">
+    <div class="item_name"><?php echo $updatedItem->getName(); ?></div>
+    <div class="content_item_box">
+        <div class="item_image">
+            <a href="<?php echo url_for('item_show_user', $updatedItem); ?>">
+                <img src="/images/item/<?php echo $updatedItem->getImage(); ?>.jpg" alt="" width="120px" height="120px" />
+            </a>
+        </div>
+        <div class="item_price">
+            <?php echo $updatedItem->getUnitCost(); ?>&nbsp;€
+        </div>
+
+        <div class="item_shoppingcart">
+            <form action="">
+                <fieldset>
+                    <input type="submit" value="" class="add_shoppingcart_input" />
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="item_category">
+           <span>>></span> Plus de <?php echo link_to($updatedItem->getIStoreCategory(), 'category', $updatedItem->getIStoreCategory()); ?>
+        </div>
+    </div>
+</div>
     
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Makita 156 MX-VL</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p1.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-        <a href="buy.html" class="prod_buy">Add to Cart</a>
-        <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Bosch XC</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p2.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
+    <?php    endforeach; ?>
 
 
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Lotus PP4</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p4.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Makita 156 MX-VL</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p3.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Bosch XC</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p5.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
 
 
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Lotus PP4</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p6.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-<div class="homepage_title">
-    <h2>Recomended Products</h2>
-</div>
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Makita 156 MX-VL</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p7.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Bosch XC</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p1.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
-
-
-<div class="prod_box">
-
-    <div class="center_prod_box">
-         <div class="product_title"><a href="details.html">Lotus PP4</a></div>
-         <div class="product_img"><a href="details.html"><img src="images/p3.jpg" alt="" title="" border="0" /></a></div>
-         <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-    </div>
-
-    <div class="prod_details_tab">
-    <a href="buy.html" class="prod_buy">Add to Cart</a>
-    <a href="details.html" class="prod_details">Details</a>
-    </div>
-</div>
 </div>
 
 <?php include_component('menu', 'right'); ?>

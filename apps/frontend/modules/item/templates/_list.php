@@ -23,7 +23,7 @@
           </td>
           <td class="brand"><?php echo $item->getIStoreBrand()  ?></td>
           <td class="name">
-            <a href="<?php echo url_for('item/show?id='.$item->getId()) ?>">
+            <a href="<?php echo url_for('item_show_user', $item); ?>">
               <?php echo $item->getName() ?><br />
                 <span class="short_description"><?php echo $item->getShortDescription(); ?></span>
             </a>
@@ -40,3 +40,5 @@
       </tbody>
   </table>
 </div>
+
+<!--url_for('item/show?id='.$item->getId())-->

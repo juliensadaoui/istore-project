@@ -3,9 +3,11 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php if (!include_slot('title')): ?>
-        <?php include_title() ?>
-    <?php endif; ?>
+    <title>
+        <?php if (!include_slot('title')): ?>
+            iStore - Le meilleur du High-Tech dans notre boutique
+        <?php endif; ?>
+    </title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>

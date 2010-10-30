@@ -11,17 +11,34 @@ homepage:
   url:   /
   param: { module: homepage, action: index }
 
-# Listing des articles actifs d'une catégorie
+# Listing des articles valides d'une catégorie
 category:
   url:      /category/:slug
   class:    sfDoctrineRoute
   param:    { module: category, action: show }
   options:  { model: IStoreCategory, type: object }
 
-# Détails d'un article
+# Détails d'un article (deux routes possibles)
+item_show_user:
+  url:     /item/:name_slug/:brand_slug/:id/:description_slug
+  class:   sfDoctrineRoute
+  param:   { module: item, action: show }
+  options:
+    model: IStoreItem
+    type: object
+    method_for_query: retrieveActiveItem
+  requirements:
+    id: \d+
+    sf_method: [get]
+    
 item:
   url:    /item/:id
+  class:  sfDoctrineRoute
   param:  { module: item, action: show }
+  options:
+    model: IStoreItem
+    type: object
+    method_for_query: retrieveActiveItem
   requirements:
     id: \d+
 

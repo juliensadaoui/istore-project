@@ -12,5 +12,36 @@
  */
 class IStoreItem extends BaseIStoreItem
 {
+    /**
+     *  Remplace les caractères non ASCII du nom de l'article
+     *      par le caractère -
+     *
+     * @return <type>
+     */
+    public function getNameSlug()
+    {
+      return IStore::slugify($this->getName());
+    }
 
+    /**
+     *  Remplace les caractères non ASCII de la marque de l'article
+     *      par le caractère -
+     *
+     * @return <type>
+     */
+    public function getBrandSlug()
+    {
+      return IStore::slugify($this->getIStoreBrand());
+    }
+
+    /**
+     *  Remplace les caractères non ASCII de la description courte
+     *       de l'article par le caractère -
+     *
+     * @return <type>
+     */
+    public function getDescriptionSlug()
+    {
+      return IStore::slugify($this->getShortDescription());
+    }
 }

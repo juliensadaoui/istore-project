@@ -71,8 +71,62 @@ class IStoreItemTable extends Doctrine_Table
 
         $alias = $q->getRootAlias();
 
-        $q->andWhere($alias . '.is_activated = ?', true)
-          ->addOrderBy($alias . '.name');
+        $q->andWhere($alias . '.is_activated = ?', true);
+//          ->addOrderBy($alias . '.name');
+
+        return $q;
+    }
+
+    public function getUpdatedItems ($limit = 10)
+    {
+        return $this->addUpdatedItemsQuery()->limit($limit)->execute();
+    }
+
+    /**
+     *  Retourne la requete doctrine permettant de récupérer
+     *      les deniers articles mise à jour. La requete peut
+     *      être ajusté en fonction du besoin.
+     *
+     * @param Doctrine_Query $q
+     * @return <type>
+     */
+    public function addUpdatedItemsQuery (Doctrine_Query $q = null)
+    {
+        if (is_null($q))
+        {
+            $q = Doctrine_Query::create()
+                ->from('IStoreItem i');
+        }
+
+        $alias = $q->getRootAlias();
+        $q->addOrderBy($alias . '.updated_at DESC');
+
+        return $q;
+    }
+
+    public function getNewsItems ($limit = 10)
+    {
+        return $this->addNewsItemsQuery()->limit($limit)->execute();
+    }
+
+    /**
+     *  Retourne la requete doctrine permettant de récupérer
+     *      les denières nouveautés du catalogue. La requete peut
+     *      être ajusté en fonction du besoin.
+     *
+     * @param Doctrine_Query $q
+     * @return <type>
+     */
+    public function addNewsItemsQuery (Doctrine_Query $q = null)
+    {
+        if (is_null($q))
+        {
+            $q = Doctrine_Query::create()
+                ->from('IStoreItem i');
+        }
+
+        $alias = $q->getRootAlias();
+        $q->addOrderBy($alias . '.created_at DESC');
 
         return $q;
     }

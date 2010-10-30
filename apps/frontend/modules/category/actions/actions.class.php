@@ -18,5 +18,14 @@ class categoryActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->category = $this->getRoute()->getObject();
+
+    // afin de paginer la liste des articles d'une catégorie, on utilise
+    //   la classe sfDoctrinePager fournit par symfony
+    $this->pager = new sfDoctrinePager(
+            'IStoreItem', sfConfig::get('app_max_items_on_category'));
+    $this->pager->setQuery($this->category->getActiveItemsQuery());
+    // on définit la page 1 par défai
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
   }
 }

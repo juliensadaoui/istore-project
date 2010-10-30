@@ -319,33 +319,7 @@ height:auto;
 text-align:center;
 /*background:url(/images/box_bottom_bg.gif) no-repeat center bottom;*/
 }
-.product_title{
-color:#ff8a00;
-padding:5px 0 5px 0;
-font-weight:bold;
-}
-.product_title a{
-text-decoration:none;
-color:#ff8a00;
-padding:5px 0 5px 0;
-font-weight:bold;
-}
-.product_title a:hover{
-color:#064E5A;
-}
-.product_img{
-padding:5px 0 5px 0;
-}
-.prod_price{
-padding:5px 0 5px 0;
-}
-span.reduce{
-color:#666666;
-text-decoration:line-through;
-}
-span.price{
-color: #ff8a00;
-}
+
 /*----------newsletter--------------*/
 input.newsletter_input{
 width:150px;
@@ -376,133 +350,8 @@ width:180px;
 float:left;
 padding:20px 0 20px 0;
 }
-/*---------prod_box----------*/
-.prod_box{
-width:200px;
-height:auto;
-float:left;
-padding:10px 10px 10px 11px;
-}
-.center_prod_box{
-width:200px;height: auto;float:left; text-align:center;padding:0px; margin:0px; border:1px #F0F4F5 solid;
-}
-.prod_details_tab{
-width:173px;
-height:31px;
-float:left;
-margin:3px 0 0 0;
-}
-img.left_bt{
-float:left;
-padding:6px 0 0 6px;
-}
-a.prod_details{
-width:75px;
-height:24px;
-display:block;
-float:right;
-background:url(/images/link_bg.gif) no-repeat center;
-margin:2px 5px 0 0;
-text-align:center;
-line-height:24px;
-text-decoration:none;
-color:#159dcc;
-}
 
-a.prod_compare{
-width:75px;
-height:24px;
-display:block;
-float:left;
-background:url(/images/link_bg.gif) no-repeat center;
-margin:2px 0 0 5px;
-text-align:center;
-line-height:24px;
-text-decoration:none;
-color:#159dcc;
-}
-a.prod_buy{
-width:75px;
-height:24px;
-display:block;
-float:left;
-background:url(/images/link_bg.gif) no-repeat center;
-margin:2px 0 0 5px;
-text-align:center;
-line-height:24px;
-text-decoration:none;
-color: #006600;
-}
-/*---------prod_box_big----------*/
-.prod_box_big{
-width:554px;
-height:auto;
-float:left;
-padding:10px 10px 15px 15px;
-}
-.center_prod_box_big{
-width:554px;height: auto;float:left; text-align:center;padding:0 0 10px 0; margin:0px;border:1px #F0F4F5 solid;
-}
-.product_img_big{
-width:170px;
-padding:10px 0 0 10px;
-float:left;
-}
-.details_big_box{
-width:345px;
-float:left;
-padding:0 0 0 15px;
-text-align:left;
-}
-.product_title_big{
-color:#ff8a00;
-padding:5px 0 5px 0;
-font-weight:bold;
-font-size:14px;
-}
-.specifications{
-font-size:12px;
-font-weight:bold;
-line-height:18px;
-}
-.thumbs{
-padding:8px 5px 8px 5px;
-border:1px #DFD1D1 solid;
-margin:15px 0 0 0;
-}
-.thumbs a{
-padding:3px;
-}
-.prod_price_big{
-padding:5px 0 5px 0;
-font-size:16px;
-}
-a.addtocart{
-width:76px;
-height:27px;
-display:block;
-float:left;
-background:url(/images/addtocart.gif) no-repeat left;
-padding:0 0 0 33px;
-text-decoration:none;
-line-height:27px;
-color:#1c4a52;
-}
-a.compare{
-width:76px;
-height:27px;
-display:block;
-float:left;
-margin:0 0 0 10px;
-background:url(/images/compare.gif) no-repeat left;
-padding:0 0 0 33px;
-text-decoration:none;
-line-height:27px;
-color:#1c4a52;
-}
-span.blue{
-color:#159DCC;
-}
+
 /*---------------contact_form------------------*/
 .contact_form{
 width:355px;
@@ -553,35 +402,36 @@ text-decoration:none;
 line-height:27px;
 color:#1c4a52;
 }
+
 /*--------------footer----------------*/
 .footer{
-width:1000px;
-clear:both;
-height:65px;
-background:url(/images/footer_bg.gif) repeat-x top;
+    width:1000px;
+    clear:both;
+    height:65px;
+    background:url(/images/footer_bg.gif) repeat-x top;
 }
 .left_footer{
-float:left;
-width:300px;
-padding:5px 0 0 10px;
+    float:left;
+    width:300px;
+    padding:5px 0 0 10px;
 }
 .right_footer{
-float:right;
-padding:15px 30px 0 0;
+    float:right;
+    padding:15px 30px 0 0;
 }
 .right_footer a{
-padding:0 0 0 7px;
-text-decoration:none;
-color: #666666;
+    padding:0 0 0 7px;
+    text-decoration:none;
+    color: #666666;
 }
 .right_footer a:hover{
-text-decoration:underline;
+    text-decoration:underline;
 }
 
 .center_footer{
-float:left;
-width:200px;
-text-align:center;
-color:#666666;
-padding:10px 0 0 60px;
+    float:left;
+    width:200px;
+    text-align:center;
+    color:#666666;
+    padding:10px 0 0 60px;
 }

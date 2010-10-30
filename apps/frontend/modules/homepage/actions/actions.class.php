@@ -18,6 +18,7 @@ class homepageActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
    // $this->forward('default', 'module');
-
+    $this->updatedItems = Doctrine::getTable('IStoreItem')->getUpdatedItems(6);
+    $this->newsItems = Doctrine::getTable('IStoreItem')->getNewsItems(6);
   }
 }

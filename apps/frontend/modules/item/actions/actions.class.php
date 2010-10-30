@@ -19,9 +19,9 @@ class itemActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->i_store_item = Doctrine_Core::getTable('IStoreItem')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->i_store_item);
-    $this->item = $this->i_store_item;
+    $this->item = $this->getRoute()->getObject();
+
+    $this->forward404Unless($this->item);
   }
 
 //  public function executeNew(sfWebRequest $request)
