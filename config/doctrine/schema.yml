@@ -1,5 +1,8 @@
 IStoreCategory:
-  actAs: { Timestampable: ~ }
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      fields: [name]
   columns:
     name: { type: string(255), notnull: true, unique: true }
     parent_category_id: { type: integer }
@@ -20,7 +23,8 @@ IStoreItem:
     brand_id: { type: integer, notnull: true }
     name: { type: string(255), notnull: true, unique: true }
     image: { type: string(255), notnull: true }
-    description: { type: string(255), notnull: true }
+    short_description: { type: string(255), notnull: true }
+    description: { type: string(2048), notnull: true }
     unit_cost: { type: float, notnull: true }
     weight: { type: float, notnull: true }
     is_activated: { type: boolean, notnull: true }

@@ -1,54 +1,57 @@
-<table>
-  <tbody>
-    <tr>
-      <th>Id:</th>
-      <td><?php echo $i_store_item->getId() ?></td>
-    </tr>
-    <tr>
-      <th>Category:</th>
-      <td><?php echo $i_store_item->getCategoryId() ?></td>
-    </tr>
-    <tr>
-      <th>Brand:</th>
-      <td><?php echo $i_store_item->getBrandId() ?></td>
-    </tr>
-    <tr>
-      <th>Name:</th>
-      <td><?php echo $i_store_item->getName() ?></td>
-    </tr>
-    <tr>
-      <th>Image:</th>
-      <td><?php echo $i_store_item->getImage() ?></td>
-    </tr>
-    <tr>
-      <th>Description:</th>
-      <td><?php echo $i_store_item->getDescription() ?></td>
-    </tr>
-    <tr>
-      <th>Unit cost:</th>
-      <td><?php echo $i_store_item->getUnitCost() ?></td>
-    </tr>
-    <tr>
-      <th>Weight:</th>
-      <td><?php echo $i_store_item->getWeight() ?></td>
-    </tr>
-    <tr>
-      <th>Is activated:</th>
-      <td><?php echo $i_store_item->getIsActivated() ?></td>
-    </tr>
-    <tr>
-      <th>Created at:</th>
-      <td><?php echo $i_store_item->getCreatedAt() ?></td>
-    </tr>
-    <tr>
-      <th>Updated at:</th>
-      <td><?php echo $i_store_item->getUpdatedAt() ?></td>
-    </tr>
-  </tbody>
-</table>
+<?php include_component('menu', 'left'); ?>
+<div class="center_content">
+    <div id="item_container_center">
+        <div class="item_image">
+            <img title="<?php echo $item->getName(); ?>" alt="" src="/images/item/<?php echo $item->getImage(); ?>.jpg" width="200" height="200" />
+        </div>
+        <div class="item_header">
+            <h1><?php echo $item->getName(); ?></h1>
+            <h2><?php echo $item->getShortDescription(); ?></h2>
 
-<hr />
+            <ul>
+                <li>
+                    <span>Pour en savoir plus&nbsp:</span>
+                    <a href="<?php echo $item->getIStoreBrand()->getUrl() ?>"><?php echo $item->getIStoreBrand()->getName(); ?></a>
+                </li>
+                <li>Référencement&nbsp: <?php $date = date_create($item->getCreatedAt()); echo date_format($date, "Y-m-d"); ?></li>
+                <li>Date modification&nbsp: <?php $date = date_create($item->getUpdatedAt()); echo date_format($date, "Y-m-d"); ?></li>
 
-<a href="<?php echo url_for('item/edit?id='.$i_store_item->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('item/index') ?>">List</a>
+            </ul>
+        </div>
+        <div class="item_description">
+            <h3>Description</h3>
+            <p><?php echo str_replace("[br]","<br />",$item->getDescription()); ?></p>
+        </div>
+    </div>
+</div>
+<div id="item_container_right">
+    <div class="title">Commande</div>
+    <div class="item_order">
+        <ul>
+            <li class="item_prix">
+                Prix TTC <br/>
+                Ecotaxe : 1,00 € TTC<br />
+                <span><?php echo $item->getUnitCost(); ?>&nbsp;€</span>
+            </li>
+            <li class="item_stock">
+                <img src="/images/stock_dispo.png" alt="" title="" border="0" width="20" height="20" />
+                <br />en stock
+            </li>
+            <li class="item_shoppingcart">
+                <form action="/Accueil/Recherche/">
+                    <fieldset>
+                        <label>Quantité&nbsp;:</label><input name="q" type="text" accesskey="4" value="1" class="item_quantity_input" />
+                        <input type="submit" value="" class="add_shoppingcart_input" />
+                    </fieldset>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="title">Services</div>
+    <div class="item_services">
+    </div>
+</div>
+
+
+<!--<a href="<?php //echo url_for('item/index') ?>">List</a>-->

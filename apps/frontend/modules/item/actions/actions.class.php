@@ -12,7 +12,7 @@ class itemActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->i_store_items = Doctrine_Core::getTable('IStoreItem')
+    $this->items = Doctrine_Core::getTable('IStoreItem')
       ->createQuery('a')
       ->execute();
   }
@@ -21,13 +21,7 @@ class itemActions extends sfActions
   {
     $this->i_store_item = Doctrine_Core::getTable('IStoreItem')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->i_store_item);
-  }
-
-  public function executeList()
-  {
-    $this->items = Doctrine::getTable('IStoreItem')
-      ->createQuery('a')
-      ->execute();
+    $this->item = $this->i_store_item;
   }
 
 //  public function executeNew(sfWebRequest $request)

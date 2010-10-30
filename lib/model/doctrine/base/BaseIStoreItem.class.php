@@ -9,6 +9,7 @@
  * @property integer $brand_id
  * @property string $name
  * @property string $image
+ * @property string $short_description
  * @property string $description
  * @property float $unit_cost
  * @property float $weight
@@ -17,28 +18,30 @@
  * @property IStoreBrand $IStoreBrand
  * @property Doctrine_Collection $IStoreComments
  * 
- * @method integer             getCategoryId()     Returns the current record's "category_id" value
- * @method integer             getBrandId()        Returns the current record's "brand_id" value
- * @method string              getName()           Returns the current record's "name" value
- * @method string              getImage()          Returns the current record's "image" value
- * @method string              getDescription()    Returns the current record's "description" value
- * @method float               getUnitCost()       Returns the current record's "unit_cost" value
- * @method float               getWeight()         Returns the current record's "weight" value
- * @method boolean             getIsActivated()    Returns the current record's "is_activated" value
- * @method IStoreCategory      getIStoreCategory() Returns the current record's "IStoreCategory" value
- * @method IStoreBrand         getIStoreBrand()    Returns the current record's "IStoreBrand" value
- * @method Doctrine_Collection getIStoreComments() Returns the current record's "IStoreComments" collection
- * @method IStoreItem          setCategoryId()     Sets the current record's "category_id" value
- * @method IStoreItem          setBrandId()        Sets the current record's "brand_id" value
- * @method IStoreItem          setName()           Sets the current record's "name" value
- * @method IStoreItem          setImage()          Sets the current record's "image" value
- * @method IStoreItem          setDescription()    Sets the current record's "description" value
- * @method IStoreItem          setUnitCost()       Sets the current record's "unit_cost" value
- * @method IStoreItem          setWeight()         Sets the current record's "weight" value
- * @method IStoreItem          setIsActivated()    Sets the current record's "is_activated" value
- * @method IStoreItem          setIStoreCategory() Sets the current record's "IStoreCategory" value
- * @method IStoreItem          setIStoreBrand()    Sets the current record's "IStoreBrand" value
- * @method IStoreItem          setIStoreComments() Sets the current record's "IStoreComments" collection
+ * @method integer             getCategoryId()        Returns the current record's "category_id" value
+ * @method integer             getBrandId()           Returns the current record's "brand_id" value
+ * @method string              getName()              Returns the current record's "name" value
+ * @method string              getImage()             Returns the current record's "image" value
+ * @method string              getShortDescription()  Returns the current record's "short_description" value
+ * @method string              getDescription()       Returns the current record's "description" value
+ * @method float               getUnitCost()          Returns the current record's "unit_cost" value
+ * @method float               getWeight()            Returns the current record's "weight" value
+ * @method boolean             getIsActivated()       Returns the current record's "is_activated" value
+ * @method IStoreCategory      getIStoreCategory()    Returns the current record's "IStoreCategory" value
+ * @method IStoreBrand         getIStoreBrand()       Returns the current record's "IStoreBrand" value
+ * @method Doctrine_Collection getIStoreComments()    Returns the current record's "IStoreComments" collection
+ * @method IStoreItem          setCategoryId()        Sets the current record's "category_id" value
+ * @method IStoreItem          setBrandId()           Sets the current record's "brand_id" value
+ * @method IStoreItem          setName()              Sets the current record's "name" value
+ * @method IStoreItem          setImage()             Sets the current record's "image" value
+ * @method IStoreItem          setShortDescription()  Sets the current record's "short_description" value
+ * @method IStoreItem          setDescription()       Sets the current record's "description" value
+ * @method IStoreItem          setUnitCost()          Sets the current record's "unit_cost" value
+ * @method IStoreItem          setWeight()            Sets the current record's "weight" value
+ * @method IStoreItem          setIsActivated()       Sets the current record's "is_activated" value
+ * @method IStoreItem          setIStoreCategory()    Sets the current record's "IStoreCategory" value
+ * @method IStoreItem          setIStoreBrand()       Sets the current record's "IStoreBrand" value
+ * @method IStoreItem          setIStoreComments()    Sets the current record's "IStoreComments" collection
  * 
  * @package    i-store
  * @subpackage model
@@ -69,10 +72,15 @@ abstract class BaseIStoreItem extends sfDoctrineRecord
              'notnull' => true,
              'length' => 255,
              ));
-        $this->hasColumn('description', 'string', 255, array(
+        $this->hasColumn('short_description', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
              'length' => 255,
+             ));
+        $this->hasColumn('description', 'string', 2048, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 2048,
              ));
         $this->hasColumn('unit_cost', 'float', null, array(
              'type' => 'float',

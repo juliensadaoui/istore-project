@@ -7,7 +7,7 @@
     <div class="homepage_title">
         <h2>Editorial</h2>
     </div>
-    <img src="images/editorial_img.png" width="300" height="150" border="0" class="editorial_img" alt="" title="" />
+    <img src="/images/editorial_img.png" width="300" height="150" border="0" class="editorial_img" alt="" title="" />
 
     <div class="editorial_details">
         <div class="editorial_title">I-Store - Le meilleur du High-Tech dans notre boutique </div>

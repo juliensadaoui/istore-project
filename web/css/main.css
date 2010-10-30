@@ -142,7 +142,7 @@ input.button_search {
 	-webkit-border-radius:5px 5px 5px 5px;
 	;osverflow:hidden;
 
-	;text-shadow:0 0 2px #88857A;
+	text-shadow:0 0 2px #88857A;
 
 	background:url(/images/menu_title_bg.gif) no-repeat scroll center center transparent;
 	color:#159DCC;

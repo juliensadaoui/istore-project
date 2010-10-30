@@ -31,4 +31,39 @@ class IStoreCategory extends BaseIStoreCategory
           ->from('IStoreCategory c')
           ->where('c.parent_category_id = ?', $this->getId());
     }
+
+    public function getParentCategory ()
+    {
+//        return $q = Doctrine_Query::create()
+//            ->from('IStoreCategory c')
+//            ->where('c.id = ?', $this->getParentCategory());
+    }
+
+    public function getActiveItems()
+    {
+        return $this->getActiveItemsQuery()->execute();
+    }
+
+    public function getActiveItemsQuery()
+    {
+      $q = Doctrine_Query::create()
+        ->from('IStoreItem i')
+        ->where('i.category_id = ?', $this->getId());
+
+      return Doctrine_Core::getTable('IStoreItem')->addActiveItemsQuery($q);
+    }
+
+    public function countActiveItem()
+    {
+      $q = Doctrine_Query::create()
+        ->from('IStoreItem i')
+        ->where('i.category_id = ?', $this->getId());
+
+      return Doctrine_Core::getTable('JobeetJob')->countActiveJobs($q);
+    }
+//
+//    public function getSlug()
+//    {
+//        IStore::slugify($this->getName());
+//    }
 }
