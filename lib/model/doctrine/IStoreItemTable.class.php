@@ -16,4 +16,64 @@ class IStoreItemTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('IStoreItem');
     }
+
+    /**
+     *  Recupere le premier article valide du catalogue.
+     *
+     * @param Doctrine_Query $q
+     * @return <type>
+     */
+    public function retrieveActiveItem(Doctrine_Query $q)
+    {
+        return $this->addActiveItemsQuery($q)->fetchOne();
+    }
+
+  /**
+   *   Retourne les articles valides du catalogue.
+   *    La requete peut être ajusté en fonction du besoin.
+   *
+   * @param Doctrine_Query $q
+   * @return <type>
+   */
+    public function getActiveItems(Doctrine_Query $q = null)
+    {
+        return $this->addActiveItemsQuery($q)->execute();
+    }
+
+  /**
+   *   Retourne le nombre d'articles valides dans le catalogue.
+   *    La requête peut etre ajusté en fonction du besoin
+   *
+   * @param Doctrine_Query $q
+   * @return <type>
+   */
+    public function countActiveItems(Doctrine_Query $q = null)
+    {
+        return $this->addActiveItemsQuery($q)->count();
+    }
+
+    /**
+     *  Retourne la requete doctrine permettant de récupérer
+     *      les articles valides du catalogue. La requete peut
+     *      être ajusté en fonction du besoin. Exemple: retourner
+     *      les articles valides associés à une catégorie donnée.
+     *
+     * @param Doctrine_Query $q
+     * @return <type>
+     */
+    public function addActiveItemsQuery(Doctrine_Query $q = null)
+    {
+        if (is_null($q))
+        {
+          $q = Doctrine_Query::create()
+            ->from('IStoreItem i');
+        }
+
+        $alias = $q->getRootAlias();
+
+        $q->andWhere($alias . '.is_activated = ?', true)
+          ->addOrderBy($alias . '.name');
+
+        return $q;
+    }
 }

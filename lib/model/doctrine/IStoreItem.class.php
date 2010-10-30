@@ -12,4 +12,5 @@
  */
 class IStoreItem extends BaseIStoreItem
 {
+
 }

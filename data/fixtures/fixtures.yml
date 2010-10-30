@@ -35,6 +35,9 @@ IStoreCategory:
   processeur:
     IStoreCategory: composants
     name: Processeurs
+  carte_mere:
+    IStoreCategory: composants
+    name: Carte Mère
   memoire:
     IStoreCategory: composants
     name: Mémoires
@@ -79,6 +82,9 @@ IStoreCategory:
   apple_port:
     IStoreCategory: portables
     name: Portables Apple
+  acer_port:
+    IStoreCategory: portables
+    name: Portables Acer
 #ecrans
   lcd_ecran:
     IStoreCategory: ecrans
@@ -168,7 +174,15 @@ IStoreBrand:
   dwa:
     name: dwa
     url: http://www.dwa.fr/
-
+  asus:
+    name: Asus
+    url: http://www.asus.com/
+  corsair:
+    name: Corsair
+    url: http://www.corsair.com/
+  acer:
+    name: Acer
+    url: http://www.acer.com/
 
 IStoreItem:
   proc_amd1:
@@ -240,14 +254,15 @@ IStoreItem:
 
 # Démarrez au début de la ligne (pas d'espace avant)
 <?php for ($i = 0; $i < 10; $i++): ?>
-  item_<?php echo $i; ?>:
+  intel_proc_item_<?php echo $i; ?>:
     name: Intel® Core™ i7 9<?php echo $i; ?>0<?php echo "\n"; ?>
+    short_description: 3,20 GHz, 12 Mo, 4,8 GT/s
     description: |
-      Derniers nés du géant Intel, les processeurs Core™ i7 débarquent avec leurs lots de nouveautés ! Ces nouveaux processeurs sont dotés de 4 cœurs multithreadés, imaginez la puissance de calcul de 8 processeurs dans votre configuration !
-      Adieu le FSB, bonjour le QPI !
+      Derniers nés du géant Intel, les processeurs Core™ i7 débarquent avec leurs lots de nouveautés ! Ces nouveaux processeurs sont dotés de 4 cœurs multithreadés, imaginez la puissance de calcul de 8 processeurs dans votre configuration ![br]
+      Adieu le FSB, bonjour le QPI ![br][br]
 
-      Grâce à la technologie QPI (QuickPath Interconnect), le bus connectant les processeurs au chipset n'est plus partagé. Les 4 coeurs de votre processeur communiquent donc plus rapidement et plus efficacement jusqu'à une vitesse de 6,4 GT/S, équivalent à une bande passante de 25 Gigabyte/secondes !
-      Contrôleur mémoire intégré
+      Grâce à la technologie QPI (QuickPath Interconnect), le bus connectant les processeurs au chipset n'est plus partagé. Les 4 coeurs de votre processeur communiquent donc plus rapidement et plus efficacement jusqu'à une vitesse de 6,4 GT/S, équivalent à une bande passante de 25 Gigabyte/secondes ![br]
+      Contrôleur mémoire intégré[br][br]
 
       La nouvelle architecture des Core™ i7 intègre le contrôleur mémoire au sein-même du processeur. Ajoutez à cela une gestion de la mémoire triple-canal et un lien par le fameux bus QPI, la bande passante mémoire atteint des sommets pour des performances exceptionnelles !
     unit_cost: 2<?php echo $i; ?>8.99<?php echo "\n"; ?>
@@ -255,4 +270,67 @@ IStoreItem:
     image: intel
     IStoreBrand: intel
     IStoreCategory: processeur
+<?php endfor ?>
+<?php for ($i = 0; $i < 10; $i++): ?>
+  radeon_item_<?php echo $i; ?>:
+    name: Radeon HD <?php echo $i; ?>870 1Go<?php echo "\n"; ?>
+    short_description: Radeon HD 6870, 900 MHz, PCI-Express 16x, 1024 Mo, 4200 MHz
+    description: |
+      Une nouvelle ère commence[br][br]
+
+      Grande révolution dans l'univers des cartes graphiques la marque ATI disparait pour céder sa place à AMD. Pas de panique les Radeon sont toujours de la partie et la série des AMD Radeon HD 6800 amène des évolutions cruciales et des innovations qui vous garantiront un plaisir de jeu sans cesse renouvelé.
+    unit_cost: 1<?php echo $i; ?>8.99<?php echo "\n"; ?>
+    is_activated: true
+    image: cg_radeon
+    IStoreBrand: amd
+    IStoreCategory: carte_graphique
+<?php endfor ?>
+<?php for ($i = 0; $i < 10; $i++): ?>
+  cm_asus_item_<?php echo $i; ?>:
+    name: Asus Rampage II Extreme V<?php echo $i . "\n"; ?>
+    short_description: Intel® X58, DDR3, PCI-E 16x, Firewire 400
+    description: |
+      Toute première carte de la mythique série Republic of Gamer à destination des nouveaux processeurs quadri-cœurs Intel® Core i7, la Rampage II Extreme se destine aux passonnés avant tout.[br][br]
+      Avec son look agressif, et sa multitude d'options la Rampage II Extreme vous permettra de vous monter une configuration aux petits oignons ! Son BIOS ultra complet vous donne accès à l'ensemble des réglages nécessaires à l'optimisation de votre processeurs et plus encore. Bien sûr la Rampage II Extreme offre la gestion du SLI ET du Crossfire ! Plus d'hésitation à avoir si vous projetez de monter une configuration multi-GPU, cette carte mère saura s'adapter !
+    unit_cost: 3<?php echo $i; ?>9.99<?php echo "\n"; ?>
+    is_activated: true
+    image: cm_asus
+    IStoreBrand: asus
+    IStoreCategory: carte_mere
+<?php endfor ?>
+<?php for ($i = 0; $i < 10; $i++): ?>
+  memoire_corsair_item_<?php echo $i; ?>:
+    name: Dominator 2 x 2 Go DDR3 PC12800 CAS <?php echo $i . "\n"; ?>
+    short_description: 4096 Mo, PC12800 (1600 MHz), 8-8-8-24
+    description: |
+      Pour assurer à la série DOMINATOR une réputation sans faille Corsair effectue des tests intensifs et rigoureux sur tous les composants qui constituent une barrette mémoire. Toutes les barrettes passants les premiers tests sont alors appairées afin de garantir leur interopérabilité, et ainsi vous offrir des kits de barrettes mémoires d'une fiabilité à toute épreuve, qui saura satisfaire les utilisateurs et joueurs en ligne les plus exigeants.[br][br]
+
+      Ce kit est validé pour fonctionner à une fréquence de 1600 MHz (PC12800).[br][br]
+      Et ne craignez pas la surchauffe grâce au nouveau système de refroidissement Corsair DHX (Dual-Path Heat Xchange) qui permettra à vos mémoires de profiter d’une excellente dissipation thermique.
+    unit_cost: 1<?php echo $i; ?>9.49<?php echo "\n"; ?>
+    is_activated: true
+    image: ram_corsair
+    IStoreBrand: corsair
+    IStoreCategory: memoire
+<?php endfor ?>
+
+<?php for ($i = 0; $i < 10; $i++): ?>
+  acer_pcport_item_<?php echo $i; ?>:
+    name: Acer Aspire AZ5610 V<?php echo $i . "\n"; ?>
+    short_description: Intel Pentium Core 2 Duo E7500 4 Go 1 To LCD 23" Graveur DVD Windows 7 Premium
+    description: |
+      L'Acer Aspire AZ5610 combine le plaisir du tactile sur un large écran 23" et l'assurance de performances élevées pour vos loisirs multimédias. L'Aspire AZ5610 apporte un style ultra-moderne dans votre foyer et libère de la place du fait de son design tout-en-un ultra fin.[br][br]
+
+      Applications Acer TouchPortal[br]
+      L'Acer TouchPortal est le point d'accès pour les gadgets Acer Touch : TouchMediaShare, TouchMusic, TouchPhotoShow, TouchFriends, and TouchMemo. Cette suite d'applications des plus utiles vous accompagne dans vos navigations Internet et vous simplifie la gestion multi-touch au quotidien.[br][br]
+
+      Acer TouchFriends intègre automatiquement vos listes d'amis de Flickr et Facebook et fournit des notifications de mise à jour de photos; pendant que l'Acer TouchMediaShare offre la gestion de vos photos comme l'édition, la modification et l'envoi par email ; le tout dans l'amusement et la facilité grace au multi-touch ![br][br]
+
+      Le divertissement multimédia haute-définition[br]
+      L'écran Full HD 16:9 et la carte graphique performante ajoute de la finesse et des couleurs claires à vos films, jeux vidéos et autres applications graphiques. Le son haute définition 5.1 restitue dans les moindres détails vos musiques et bandes sons.[br][br]
+    unit_cost: 929.96
+    is_activated: true
+    image: pcport_acer
+    IStoreBrand: acer
+    IStoreCategory: acer_port
 <?php endfor ?>

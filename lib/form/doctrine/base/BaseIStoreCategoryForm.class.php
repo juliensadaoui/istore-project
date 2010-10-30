@@ -20,6 +20,7 @@ abstract class BaseIStoreCategoryForm extends BaseFormDoctrine
       'parent_category_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreCategory'), 'add_empty' => true)),
       'created_at'         => new sfWidgetFormDateTime(),
       'updated_at'         => new sfWidgetFormDateTime(),
+      'slug'               => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -28,10 +29,14 @@ abstract class BaseIStoreCategoryForm extends BaseFormDoctrine
       'parent_category_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreCategory'), 'required' => false)),
       'created_at'         => new sfValidatorDateTime(),
       'updated_at'         => new sfValidatorDateTime(),
+      'slug'               => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'IStoreCategory', 'column' => array('name')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'IStoreCategory', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'IStoreCategory', 'column' => array('slug'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('i_store_category[%s]');
