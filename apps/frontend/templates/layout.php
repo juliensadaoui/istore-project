@@ -42,7 +42,7 @@
 		<form id="search" action="/Accueil/Recherche/">
                     <fieldset>
                         <input id="champRecherche" name="q" type="text" accesskey="4" value="" class="box" />
-                        <input type="submit" value="Recherche" class="button_search" />
+                        <input type="submit" value="Recherche2" class="button_search" />
                     </fieldset>
                 </form>
 			</div>
