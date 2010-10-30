@@ -1,6 +1,6 @@
 <?php include_component('menu', 'left'); ?>
 <div class="center_content">
-    <div id="item_fact_sheet">
+    <div id="item_container_center">
         <div class="item_image">
             <img title="<?php echo $item->getName(); ?>" alt="" src="/images/item/<?php echo $item->getImage(); ?>.jpg" width="200" height="200" />
         </div>
@@ -13,6 +13,9 @@
                     <span>Pour en savoir plus&nbsp:</span>
                     <a href="<?php echo $item->getIStoreBrand()->getUrl() ?>"><?php echo $item->getIStoreBrand()->getName(); ?></a>
                 </li>
+                <li>Référencement&nbsp: <?php $date = date_create($item->getCreatedAt()); echo date_format($date, "Y-m-d"); ?></li>
+                <li>Date modification&nbsp: <?php $date = date_create($item->getUpdatedAt()); echo date_format($date, "Y-m-d"); ?></li>
+
             </ul>
         </div>
         <div class="item_description">
@@ -21,9 +24,9 @@
         </div>
     </div>
 </div>
-<div class="item_order">
-    <div class="item_order_title">Commande</div>
-    <div class="item_order_prix">
+<div id="item_container_right">
+    <div class="title">Commande</div>
+    <div class="item_order">
         <ul>
             <li class="item_prix">
                 Prix TTC <br/>
@@ -35,14 +38,18 @@
                 <br />en stock
             </li>
             <li class="item_shoppingcart">
-                <form id="search" action="/Accueil/Recherche/">
+                <form action="/Accueil/Recherche/">
                     <fieldset>
-                        <input id="champRecherche" name="q" type="text" accesskey="4" value="" class="box" />
-                        <input type="submit" value="Ajouter au panier" class="button_add_shoppingcart" />
+                        <label>Quantité&nbsp;:</label><input name="q" type="text" accesskey="4" value="1" class="item_quantity_input" />
+                        <input type="submit" value="" class="add_shoppingcart_input" />
                     </fieldset>
                 </form>
             </li>
         </ul>
+    </div>
+
+    <div class="title">Services</div>
+    <div class="item_services">
     </div>
 </div>
 
