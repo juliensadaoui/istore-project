@@ -173,56 +173,56 @@ IStoreBrand:
 IStoreItem:
   proc_amd1:
     name: AMDx2 64bits
-    image: /web/images/amd-athlon-ii-x2-245e_100.jpg
+    image: intel
     description: Le meilleur dans sa categorie, cadencé à 4Ghz
     unit_cost: 149
     IStoreCategory: processeur
     IStoreBrand: amd
   proc_intel1:
     name: Intel Q4 64bits
-    image: /web/images/intel-core-2-duo-e8600_100.jpg
+    image: intel
     description: Un très bon rapport qualité prix, sera combler les gamers...
     unit_cost: 99
     IStoreCategory: processeur
     IStoreBrand: intel
   ram_1:
     name: 4Go DDR3
-    image: /web/images/ocz-ddr3-2-x-2-go-platinum_300.jpg
+    image: intel
     description: 2*2Go de DDR3 de la marque d'OCZ
     unit_cost: 69
     IStoreCategory: memoire
     IStoreBrand: ocz
   dd_seagate1:
     name: DD 1 To
-    image: /web/images/seagate-barracuda-es-2-s-ata-1000-go-32-mo_100.jpg
+    image: intel
     description: 1000 Go en rotation à plus de 10 000 tours/minutes, un must!
     unit_cost: 99
     IStoreCategory: disque_dur
     IStoreBrand: seagate
   graph_1:
     name: GeFore x600
-    image: /web/images/geforce-fx-550_100.jpg
+    image: intel
     description: Le meilleur dans sa categorie, équipée de 2Go de mémoire vive.
     unit_cost: 199
     IStoreCategory: carte_graphique
     IStoreBrand: geforce
   boit_1:
     name: Boitier Antec + alimentation 500Watts
-    image: /web/images/antec-3-5.jpg
+    image: intel
     description: Discret et silencieux
     unit_cost: 119
     IStoreCategory: boitier
     IStoreBrand: antec
   wifi_1:
     name: Carte Wifi DWA 300Mbps
-    image: /web/images/wifi-dwa-300.jpg
+    image: intel
     description: Supporte tout wifi...
     unit_cost: 29.90
     IStoreCategory: carte_wifi
     IStoreBrand: dwa
 
 
-IStoreItem:
+#IStoreItem:
 #  intel_i7_950:
 #    name: Intel® Core™ i7 950
 #    description: |
