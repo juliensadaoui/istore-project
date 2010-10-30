@@ -19,7 +19,7 @@
           <ul>
 
             <?php foreach ($category->getChildCategories() as $childCategory) : ?>
-                <li><a href="/"><?php echo $childCategory->getName(); ?></a></li>
+                <li><?php echo link_to($childCategory->getName() ,'category', $childCategory); ?></li>
                 <li class="divider"></li>
             <?php endforeach; ?>
           </ul>
