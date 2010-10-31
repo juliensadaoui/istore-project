@@ -50,6 +50,19 @@
 
     <div class="title">Services</div>
     <div class="item_services">
+        <ul>
+            <li class="item_payment">
+                <img src="/images/check-icon.png" alt="check" title="check" border="0" height="60px" width="60px" />
+                <img src="/images/paypal-icon.png" alt="paypal" title="paypal" border="0" height="60px" width="60px" /><br />
+                <img src="/images/visa-icon.png" alt="visa" title="visa" border="0" height="60px" width="60px" />
+                <img src="/images/masterCard-icon.png" alt="masterCard" title="masterCard" border="0" height="60px" width="60px" />
+            </li>
+            <li class="item_transport">
+                <img src="/images/chronopost.gif" alt="chronopost" title="chronopost" border="0" /><br />
+                <img src="/images/colissimo.gif" alt="colissimo" title="colissimo" border="0" />
+                <img src="/images/ups.gif" alt="ups" title="ups" border="0" />
+            </li>
+        </ul>
     </div>
 </div>
 

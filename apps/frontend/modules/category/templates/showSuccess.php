@@ -8,9 +8,47 @@
     <?php if ($category->countActiveItem() != 0): ?>
 
         <div class="items_count"><?php echo $category->countActiveItem(); ?> articles dans la catégorie</div>
-        <?php include_partial('item/list', array('items' => $category->getActiveItems())) ?>
+        <?php include_partial('item/list', array('items' => $pager->getResults())) ?>
 
-    <?php else: ?>
-        <div class="items_count">Il n'y a pas d'articles dans cette catégorie.</div>
-    <?php endif; ?>
+        <?php if ($pager->haveToPaginate()): ?>
+
+        <div class="pagination">
+            
+            <!-- first page -->
+            <a href="<?php echo url_for('category', $category) ?>?page=1">
+                <img src="/images/first-page-icon.png" alt="First page" title="First page"  width="30px" height="30px" />
+            </a>
+            <!-- previous page -->
+            <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getPreviousPage() ?>">
+                <img src="/images/previous-page-icon.png" alt="Previous page" title="Previous page" width="30px" height="30px" />
+            </a>
+
+        <?php foreach ($pager->getLinks() as $page): ?>
+            <?php if ($page == $pager->getPage()): ?>
+                <?php echo $page ?>
+            <?php else: ?>
+                <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+            <!-- next page -->
+            <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getNextPage() ?>">
+                <img src="/images/next-page-icon.png" alt="Next page" title="Next page"  width="30px" height="30px" />
+            </a>
+            <!-- last page -->
+            <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getLastPage() ?>">
+                <img src="/images/last-page-icon.png" alt="Last page" title="Last page" width="30px" height="30px" />
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <div class="pagination_desc">
+            <?php if ($pager->haveToPaginate()): ?>
+            page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
+            <?php endif; ?>
+        </div>
+
+        <?php else: ?>
+            <div class="items_count">Il n'y a pas d'articles dans cette catégorie.</div>
+        <?php endif; ?>
 </div>
