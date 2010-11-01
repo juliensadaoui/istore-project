@@ -9,5 +9,21 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins('sfDoctrinePlugin');
     $this->enablePlugins('sfShoppingCartPlugin');
+    $this->enablePlugins('sfDoctrineGuardPlugin');
   }
+
+    static protected $zendLoaded = false;
+    static public function registerZend()
+    {
+        if (self::$zendLoaded)
+        {
+            return;
+        }
+        set_include_path(sfConfig::get('sf_lib_dir')
+        .'/vendor'.PATH_SEPARATOR.get_include_path());
+        require_once sfConfig::get('sf_lib_dir')
+        .'/vendor/Zend/Loader.php';
+        Zend_Loader::registerAutoload();
+        self::$zendLoaded = true;
+    }
 }
