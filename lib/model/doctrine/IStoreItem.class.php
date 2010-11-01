@@ -44,4 +44,38 @@ class IStoreItem extends BaseIStoreItem
     {
       return IStore::slugify($this->getShortDescription());
     }
+
+    /**
+     *   Retourne un tableau formaté des caractéristiques d'un article
+     *
+     * @param string $detailsXml   Détails de l'article dans le format XML
+     * @return array()   Détail de l'article (ensemble des caractéristiques dans
+     *      un tableau formaté
+     */
+    public static function formatDetails($detailsXml)
+    {
+        // initialisation
+        $details = array();
+        $keepTrying = true;
+        $i = 1;
+        $detailsXml = '<?xml version="1.0" encoding="ISO-8859-1"?>' . html_entity_decode($detailsXml);
+
+        // on charge les librairies de Zend Framework
+        ProjectConfiguration::registerZend();
+        
+        // on format les details de l'article
+        do
+        {
+            try {
+                // on recupere une à une les caractéristiques de l'article
+                $caract = new Zend_Config_Xml($detailsXml, 'caract_' . $i);
+                $details[] = $caract->toArray();
+                $i++;
+            } catch (Zend_Config_Exception $e) {
+                $keepTrying = false;
+            }
+        } while ($keepTrying);
+        
+        return $details;
+    }
 }

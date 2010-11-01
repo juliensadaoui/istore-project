@@ -15,13 +15,31 @@
                 </li>
                 <li>Référencement&nbsp: <?php $date = date_create($item->getCreatedAt()); echo date_format($date, "Y-m-d"); ?></li>
                 <li>Date modification&nbsp: <?php $date = date_create($item->getUpdatedAt()); echo date_format($date, "Y-m-d"); ?></li>
-
             </ul>
         </div>
         <div class="item_description">
             <h3>Description</h3>
             <p><?php echo str_replace("[br]","<br />",$item->getDescription()); ?></p>
         </div>
+
+        <?php $details = IStoreItem::formatDetails($item->getDetails()); ?>
+        <?php if (count($details) !== 0): ?>
+        <div class="item_details" >
+            <h3>Fiche technique</h3>
+            <table>
+                <tbody>
+                    <?php foreach ($details as $caract): ?>
+                    <tr>
+                        <td class="item_caract_name"><?php echo $caract['name']; ?></td>
+                        <td class="item_caract_value"><?php echo $caract['value']; ?></td>
+                    </tr>
+
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+        </div>
+        <?php endif; ?>
     </div>
 </div>
 <div id="item_container_right">

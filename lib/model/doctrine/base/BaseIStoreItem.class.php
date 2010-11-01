@@ -11,6 +11,7 @@
  * @property string $image
  * @property string $short_description
  * @property string $description
+ * @property string $details
  * @property float $unit_cost
  * @property float $weight
  * @property boolean $is_activated
@@ -24,6 +25,7 @@
  * @method string              getImage()             Returns the current record's "image" value
  * @method string              getShortDescription()  Returns the current record's "short_description" value
  * @method string              getDescription()       Returns the current record's "description" value
+ * @method string              getDetails()           Returns the current record's "details" value
  * @method float               getUnitCost()          Returns the current record's "unit_cost" value
  * @method float               getWeight()            Returns the current record's "weight" value
  * @method boolean             getIsActivated()       Returns the current record's "is_activated" value
@@ -36,6 +38,7 @@
  * @method IStoreItem          setImage()             Sets the current record's "image" value
  * @method IStoreItem          setShortDescription()  Sets the current record's "short_description" value
  * @method IStoreItem          setDescription()       Sets the current record's "description" value
+ * @method IStoreItem          setDetails()           Sets the current record's "details" value
  * @method IStoreItem          setUnitCost()          Sets the current record's "unit_cost" value
  * @method IStoreItem          setWeight()            Sets the current record's "weight" value
  * @method IStoreItem          setIsActivated()       Sets the current record's "is_activated" value
@@ -81,6 +84,11 @@ abstract class BaseIStoreItem extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => true,
              'length' => 2048,
+             ));
+        $this->hasColumn('details', 'string', 4096, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 4096,
              ));
         $this->hasColumn('unit_cost', 'float', null, array(
              'type' => 'float',

@@ -25,6 +25,7 @@ IStoreItem:
     image: { type: string(255), notnull: true }
     short_description: { type: string(255), notnull: true }
     description: { type: string(2048), notnull: true }
+    details: { type: string(4096), notnull: true }
     unit_cost: { type: float, notnull: true }
     weight: { type: float, notnull: true }
     is_activated: { type: boolean, notnull: true }
