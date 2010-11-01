@@ -4,15 +4,22 @@
 
 <div class="center_content">
     <!--<div class="homepage_title">-->
-    <h2><?php echo ucfirst($category); ?></h2>
+    <h1><?php echo ucfirst($category); ?></h1>
     <?php if ($category->countActiveItem() != 0): ?>
 
         <div class="items_count"><?php echo $category->countActiveItem(); ?> articles dans la catégorie</div>
         <?php include_partial('item/list', array('items' => $pager->getResults())) ?>
 
+
+
         <?php if ($pager->haveToPaginate()): ?>
 
         <div class="pagination">
+            
+            <div class="pagination_desc">
+                page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
+            </div>
+
             
             <!-- first page -->
             <a href="<?php echo url_for('category', $category) ?>?page=1">
@@ -41,12 +48,6 @@
             </a>
         </div>
         <?php endif; ?>
-
-        <div class="pagination_desc">
-            <?php if ($pager->haveToPaginate()): ?>
-            page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
-            <?php endif; ?>
-        </div>
 
         <?php else: ?>
             <div class="items_count">Il n'y a pas d'articles dans cette catégorie.</div>

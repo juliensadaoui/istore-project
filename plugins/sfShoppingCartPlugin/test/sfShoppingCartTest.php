@@ -109,9 +109,11 @@ class sfShoppingCartTest extends PHPUnit_Framework_TestCase {
     /**
      *  Test la méthode qui retourne le nombre total d'article
      */
-    public function testGetTotal() {
-        $value = $this->object->getTotal();
+    public function testCountItem() {
+        $value = $this->object->countItems();
         $this->assertEquals($value, 2);
+        $value = $this->object->countItems(true);
+        $this->assertEquals($value, 11);
     }
 
     /**

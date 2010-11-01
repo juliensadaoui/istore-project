@@ -17,7 +17,7 @@ interface sfShoppingCartInterface
     public function removeItem ($id, $class);
     public function isEmpty();
     public function clear();
-    public function getTotal();
+    public function countItems();
     public function getTotalPrice();
     public function getTotalWeight();
 }

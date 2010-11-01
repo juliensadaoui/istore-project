@@ -50,23 +50,24 @@ class cartActions extends sfActions
             // on recupere l'article dans la base de données
             $item = Doctrine::getTable('IStoreItem')->find($id);
 
-            // on recupere la panier virtuel stockés dans la session
-            $shoppingCart = $this->getUser()->getShoppingCart();
+            if ($item !== null) {
+                // on recupere la panier virtuel stockés dans la session
+                $shoppingCart = $this->getUser()->getShoppingCart();
 
-            // si le produit n'existe pas, on l'ajoute au panier
-            $shoppingCartItem = $shoppingCart->getItem($id);
-            if ($shoppingCartItem ===  null)
-            {
-
-                $shoppingCartItem = new ShoppingCartItem($id);
-                $shoppingCartItem->setQuantity($quantity);
-                $shoppingCartItem->setPrice($item->getUnitCost());
-                $shoppingCart->addItem($shoppingCartItem);
-            }
-            // si le produit n'existe pas, on l'ajoute au panier
-            else
-            {
-                $shoppingCartItem->setQuantity($shoppingCartItem->getQuantity() + $quantity);
+                // si le produit n'existe pas, on l'ajoute au panier
+                $shoppingCartItem = $shoppingCart->getItem($id);
+                if ($shoppingCartItem ===  null)
+                {
+                    $shoppingCartItem = new ShoppingCartItem($id);
+                    $shoppingCartItem->setQuantity($quantity);
+                    $shoppingCartItem->setPrice($item->getUnitCost());
+                    $shoppingCart->addItem($shoppingCartItem);
+                }
+                // si le produit n'existe pas, on l'ajoute au panier
+                else
+                {
+                    $shoppingCartItem->setQuantity($shoppingCartItem->getQuantity() + $quantity);
+                }
             }
 
             // on redirige vers le panier
@@ -82,17 +83,79 @@ class cartActions extends sfActions
      *
      * @param sfWebRequest $request
      */
-    public function executeDelete()
+    public function executeDelete(sfWebRequest $request)
     {
         if ($this->hasRequestParameter('id'))
         {
             $id = $request->getParameter('id');
 
             $shoppingCart = $this->getUser()->getShoppingCart();
-            $shoppingCart->deleteItem($id);
+            $shoppingCart->removeItem($id);
+
+            // on redirige vers le panier
+            $this->forward('cart', 'show');
         }
 
         $this->forward404();
+    }
+
+    /**
+     *  Action 'update' du module 'cart' permettant de mettre à jour
+     *      la quantité d'un article du panier virtuel de l'utilisateur
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeUpdate (sfWebRequest $request)
+    {
+        if (($this->hasRequestParameter('id'))
+                && ($this->hasRequestParameter('operation')))
+        {
+            $id = $request->getParameter('id');
+            $operation = $request->getParameter('operation');
+
+            // on recupere l'article du panier correspondant à l'identifiant
+            //      passée en parametre
+            $shoppingCart = $this->getUser()->getShoppingCart();
+            $shoppingCartItem = $shoppingCart->getItem($id);
+
+            // on verifie que l'identifiant correspond à un panier
+            if ($shoppingCartItem !==  null)
+            {
+                if ($operation === 'incremente') {
+
+                    $shoppingCartItem->setQuantity($shoppingCartItem->getQuantity() + 1);
+                }
+                else if ($operation === 'decremente') {
+                    if ($shoppingCartItem->getQuantity() == 1) {
+                        $shoppingCart->removeItem($id);
+                    }
+                    else {
+                        $shoppingCartItem = $shoppingCart->getItem($id);
+                        $shoppingCartItem->setQuantity($shoppingCartItem->getQuantity() - 1);
+                    }
+                }
+            }
+
+            // on redirige vers le panier
+            $this->forward('cart', 'show');
+        }
+
+        $this->forward404();
+    }
+
+    /**
+     *  Action 'clear' du module 'cart' permettant de vider l'intégralité
+     *      du panier virtuel de l'utilisateur
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeClear (sfWebRequest $request)
+    {
+        $shoppingCart = $this->getUser()->getShoppingCart();
+        $shoppingCart->clear();
+
+        // on redirige vers le panier
+        $this->forward('cart', 'show');
     }
 
 }

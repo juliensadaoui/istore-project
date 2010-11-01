@@ -89,7 +89,7 @@ root {
     padding: 5px 0 5px 20px;
 }
 
-.item_order, .item_services {
+.item_order {
     border: 1px solid #a29d9d;
     border-top: 0 none;
     -moz-border-radius: 0 0 5px 5px ;
@@ -97,7 +97,7 @@ root {
     margin-bottom: 30px;
 }
 
-.item_order ul, .item_services ul
+.item_order ul
 {
     list-style-type: none;
     margin: 0;
@@ -165,17 +165,7 @@ li.item_stock
     border-color: black;
 }
 
-.item_transport, .item_payment
-{
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
 
-.item_transport
-{
-    border-bottom:1px dashed #898989;
-    border-top:1px dashed #898989;
-}
 
 
 

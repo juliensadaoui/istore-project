@@ -63,3 +63,27 @@ cart_add:
   requirements:
     id: \d+
     quantity: \d+
+    sf_method: [get]
+
+# Supprime un article du panier
+cart_delete:
+  url:    /cart/delete
+  param:  { module: cart, action: delete }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+# Mise à jour de la quantité d'un article
+cart_update:
+  url:    /cart/update
+  param:  { module: cart, action: update }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+# Vide le panier
+cart_clear:
+  url:    /cart/clear
+  param:  { module: cart, action: clear }
+  requirements:
+    sf_method: [get]

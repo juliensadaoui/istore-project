@@ -100,7 +100,7 @@ class sfShoppingCart implements sfShoppingCartInterface
      */
     public function isEmpty()
     {
-        return (($this->getTotal() ==  0) ? true :  false );
+        return (($this->countItems() ==  0) ? true :  false );
     }
 
     /**
@@ -114,10 +114,20 @@ class sfShoppingCart implements sfShoppingCartInterface
     /**
      *  Retourne le nombre d'articles du tableau
      *
+     * @param $quantity boolean   compte avec la quantité de l'article si true
      * @return integer
      */
-    public function  getTotal ()
+    public function  countItems ($quantity = false)
     {
+        if ($quantity) {
+            $count = 0;
+            foreach ($this->_items as $item)
+            {
+                $count += $item->getQuantity();
+            }
+            return $count;
+        }
+
         return count($this->_items);
     }
 
