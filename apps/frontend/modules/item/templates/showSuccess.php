@@ -38,10 +38,11 @@
                 <br />en stock
             </li>
             <li class="item_shoppingcart">
-                <form action="/Accueil/Recherche/">
+                <form method="get" action="<?php echo url_for('cart_add'); ?>">
                     <fieldset>
-                        <label>Quantité&nbsp;:</label><input name="q" type="text" accesskey="4" value="1" class="item_quantity_input" />
+                        <label>Quantité&nbsp;:</label><input name="quantity" value="1" type="text" accesskey="4" class="item_quantity_input" />
                         <input type="submit" value="" class="add_shoppingcart_input" />
+                        <input type="hidden" name="id" value="<?php echo $item->getId(); ?>" />
                     </fieldset>
                 </form>
             </li>

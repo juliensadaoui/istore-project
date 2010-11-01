@@ -207,10 +207,10 @@ input {
 	font-weight:bold;
 	padding:0px;
 }
-.cart_details{
-	width:115px;
+.cart_details, .cart_empty {
+	width:120px;
 	float:left;
-	padding:5px 0 0 15px;
+	padding:5px 0 0 10px;
 	text-align:left;
 }
 .cart_icon{
@@ -225,7 +225,12 @@ span.border_cart{
 	border-top:1px #999999 dashed;
 }
 
-
+.cart_empty
+{
+    padding-top: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 /*----------------crumb_navigation-------------*/
 .crumb_navigation{

@@ -114,6 +114,20 @@ class sfShoppingCartItem
     {
         $this->_weight = $weight;
     }
+
+    /**
+     *  Retourne le prix de l'article avec prise en compte de la quantité commandée
+     *
+     * @return float
+     */
+    public function getTotalPrice ()
+    {
+        return ($this->_quantity * $this->_price);
+    }
+
+    public function  __toString() {
+        return "Article du panier[id: " . $this->_id . "]";
+    }
 }
 
 ?>

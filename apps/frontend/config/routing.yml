@@ -51,3 +51,15 @@ item:
 #default:
 #  url:   /:module/:action/*
 
+# Affiche la panier virtuel de l'utilisateur
+cart_show:
+   url:   /cart
+   param: { module: cart, action: show }
+
+# Ajoute un article dans le panier
+cart_add:
+  url:    /cart/add
+  param:  { module: cart, action: add }
+  requirements:
+    id: \d+
+    quantity: \d+

@@ -19,7 +19,7 @@
     <?php foreach ($items as $i => $item): ?>
         <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
           <td class="image">
-              <img src="/images/item/<?php echo $item->getImage(); ?>_s.jpg" alt="" title="" border="0" width="80" height="80" />
+              <img src="/images/item/<?php echo $item->getImage(); ?>_s.jpg" alt="<?php echo $item->getImage(); ?>" title="<?php echo $item->getImage(); ?>" border="0" width="80" height="80" />
           </td>
           <td class="brand"><?php echo $item->getIStoreBrand()  ?></td>
           <td class="name">
@@ -33,7 +33,9 @@
             <img src="/images/stock_dispo.png" alt="" title="" border="0" width="20" height="20" /><br />en stock
           </td>
           <td class="panier">
+              <a href="<?php echo url_for('cart/add?id=' . $item->getId() . '&quantity=1'); ?>" >
                <img src="/images/add_shoppingcart_small.gif" alt="" title="" border="0" width="30" height="30" />
+              </a>
           </td>
         </tr>
     <?php endforeach; ?>

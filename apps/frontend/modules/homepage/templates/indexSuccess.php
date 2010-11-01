@@ -38,9 +38,11 @@
         </div>
 
         <div class="item_shoppingcart">
-            <form action="">
+            <form method="get" action="<?php echo url_for('cart_add'); ?>">
                 <fieldset>
                     <input type="submit" value="" class="add_shoppingcart_input" />
+                    <input type="hidden" name="id"value="<?php echo $newsItem->getId(); ?>" />
+                    <input type="hidden" name="quantity" value="1" />
                 </fieldset>
             </form>
         </div>
@@ -74,9 +76,11 @@
         </div>
 
         <div class="item_shoppingcart">
-            <form action="">
+            <form method="get" action="<?php echo url_for('cart_add'); ?>">
                 <fieldset>
                     <input type="submit" value="" class="add_shoppingcart_input" />
+                    <input type="hidden" name="id" value="<?php echo $updatedItem->getId(); ?>" />
+                    <input type="hidden" name="quantity" value="1" />
                 </fieldset>
             </form>
         </div>

@@ -1,6 +1,4 @@
 <?php
-
-require_once dirname(__FILE__).'/sfShoppingCartInterface.class.php';
 /* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -35,8 +33,23 @@ class sfShoppingCart implements sfShoppingCartInterface
                 return $key;
             }
         }
-
         return null;
+    }
+
+    /**
+     *  Retourne tous les articles du panier
+     *
+     * @return array() 
+     */
+    public function getItems()
+    {
+        $items = array();
+
+        foreach ($this->_items as $item)
+        {
+            $items[] = $item;
+        }
+        return $items;
     }
 
     /**
@@ -58,12 +71,12 @@ class sfShoppingCart implements sfShoppingCartInterface
      *
      * @param sfShoppingCart $item  article à ajouter au panier
      */
-    public function addItem (sfShoppingCart $item)
+    public function addItem (sfShoppingCartItem $item)
     {
         $found = $this->getItemKey($item->getId(), $item->getClass());
 
         if ($found === null) {
-            $this->_items[] = item;
+            $this->_items[] = $item;
         }
     }
 
@@ -119,7 +132,7 @@ class sfShoppingCart implements sfShoppingCartInterface
 
         foreach ($this->_items as $item)
         {
-            $price += ($item->getQuantity() * $item->getPrice());
+            $price += ($item->getTotalPrice ());
         }
         return $price;
     }
@@ -135,7 +148,7 @@ class sfShoppingCart implements sfShoppingCartInterface
 
         foreach ($this->_items as $item)
         {
-            $weight += ($item->getQuantity * $item->getWeight());
+            $weight += ($item->getQuantity() * $item->getWeight());
         }
 
         return $weight;

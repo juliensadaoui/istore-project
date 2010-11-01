@@ -5,14 +5,15 @@
  */
 
 /**
- * Description of sfShoppingCartInterface
+ *  Interface fournissant les services du panier. Il est permet d'implémenter
+ *      cette interface pour personnaliser son panier.
  *
  * @author julien
  */
 interface sfShoppingCartInterface
 {
     public function getItem($id, $class);
-    public function addItem (sfShoppingCart $item);
+    public function addItem (sfShoppingCartItem $item);
     public function removeItem ($id, $class);
     public function isEmpty();
     public function clear();

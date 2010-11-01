@@ -1,0 +1,116 @@
+/* 
+    Document   : shopping_cart
+    Created on : 1 nov. 2010, 01:06:13
+    Author     : julien
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.cart_title
+{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cart_title span
+{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cart_items
+{
+    width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.cart_items tr.header
+{
+  border: none 0;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  text-transform:uppercase;
+}
+
+.cart_items tr.even
+{
+  background-color: #f3fafc;
+}
+
+.cart_items tr.odd
+{
+  background-color: #f0f4f5;
+}
+
+
+.cart_items tr.header th
+{
+/*  border-bottom:5px solid #515151;*/
+  border-right:1px solid #515151;
+}
+
+.cart_items td.headerline
+{
+  background: #515151;
+  border-right:2px solid #fff;
+  height: 7px;
+}
+
+.cart_items td
+{
+  border-bottom: 1px solid #999;
+  padding: 2px 5px;
+/*  font-weight: bold;*/
+  font-size: 13px;
+}
+
+.cart_items td.category,
+.cart_items td.name,
+.cart_items td.quantity,
+.cart_items td.price,
+.cart_items td.stock
+{
+  border-right: 1px dotted #999;
+}
+
+.cart_items .image
+{
+   background-color: white;
+   border-right: 2px solid #999;
+}
+
+.cart_items .catgegory
+{
+    width: 10%;
+    text-align: center;
+}
+
+.cart_items .quantity
+{
+    width: 15%;
+    text-align: center;
+}
+
+.cart_items .stock
+{
+  width: 10%;
+  text-align: center;
+}
+
+.cart_items .price
+{
+    width: 10%;
+    text-align: center;
+    font-size: 12px;
+    text-align:  center;
+}
