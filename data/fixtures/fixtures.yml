@@ -338,3 +338,17 @@ IStoreItem:
     IStoreBrand: acer
     IStoreCategory: acer_port
 <?php endfor ?>
+
+<?php for ($i = 0; $i < 10; $i++): ?>
+  acer_pcport_item_<?php echo $i; ?>:
+    name: Samsung SGR V<?php echo $i . "\n"; ?>
+    short_description: Disque dur 3.5" S-ATA 1To Eco Green
+    description:
+      Imaginez un disque dur alliant technologie, performance et écologie… SAMSUNG l’a inventé pour vous avec sa gamme de disques durs Eco Green (Série F1EG / F2EG).
+      Avec ses deux plateaux de 500 Go, ses 5400 tours/minutes, ses 32 Mo de mémoire cache et ses composants ‘eco-friendly’, ce disque dur HD103SI consommera moins d’énergie et sera beaucoup moins bruyant qu’un disque dur classique.
+    unit_cost: 1<?php echo $i; ?>9.49<?php echo "\n"; ?>
+    is_activated: true
+    image: dd_samsung
+    IStoreBrand: samsung
+    IStoreCategory: disque_dur
+<?php endfor ?>
