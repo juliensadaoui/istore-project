@@ -33,9 +33,12 @@
             <img src="/images/stock_dispo.png" alt="" title="" border="0" width="20" height="20" /><br />en stock
           </td>
           <td class="panier">
-              <a href="<?php echo url_for('cart/add?id=' . $item->getId() . '&quantity=1'); ?>" >
-               <img src="/images/add_shoppingcart_small.gif" alt="" title="" border="0" width="30" height="30" />
-              </a>
+             <form method="post" action="<?php echo url_for('@cart_add?id=' . $item->getId() . '&quantity=1&sf_method=post'); ?>">
+                <fieldset>
+                    <input type="submit" value="" />
+<!--                    <img src="/images/add_shoppingcart_small.gif" alt="" title="" border="0" width="30" height="30" />-->
+                </fieldset>
+            </form>
           </td>
         </tr>
     <?php endforeach; ?>

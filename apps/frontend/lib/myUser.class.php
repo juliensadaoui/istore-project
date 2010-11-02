@@ -1,6 +1,6 @@
 <?php
 
-class myUser extends sfBasicSecurityUser
+class myUser extends sfGuardSecurityUser
 {
     /**
      *  Recupére la panier virtual de l'utilisateur
@@ -10,7 +10,7 @@ class myUser extends sfBasicSecurityUser
     public function getShoppingCart()
     {
         if (!$this->hasAttribute('shopping_cart')) {
-            $this->setAttribute('shopping_cart', new ShoppingCart());
+            $this->setAttribute('shopping_cart', new sfShoppingCart());
         }
 
         return $this->getAttribute('shopping_cart');
@@ -35,7 +35,7 @@ class myUser extends sfBasicSecurityUser
         }
 
         if (!empty($ids)) {
-            return Doctrine_Core::getTable('IStoreItem')
+            return Doctrine_Core::getTable($shoppingCartItem->getClass())
                     ->createQuery('i')
                     ->whereIn('i.id', $ids)
                     ->execute()

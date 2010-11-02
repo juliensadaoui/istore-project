@@ -12,6 +12,11 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfDoctrineGuardPlugin');
   }
 
+    /**
+     *  Méthode permettant de charger les classes de la librairie de Zend Framework
+     *
+     * @var <type>
+     */
     static protected $zendLoaded = false;
     static public function registerZend()
     {

@@ -134,6 +134,34 @@
     text-align: center;
 }
 
+.cart_items .quantity table,
+.cart_items .quantity td
+{
+    border: 0 none;
+}
+
+.cart_items input
+{
+    height: 20px;
+    width: 20px;
+    border: 0 none;
+}
+
+.cart_items .quantity input.add
+{
+    background: url('/images/add-icon.png') no-repeat scroll center center transparent;
+}
+
+.cart_items .quantity input.delete
+{
+    background: url('/images/delete-icon.png') no-repeat scroll center center transparent;
+}
+
+.cart_items input.remove
+{
+    background: url('/images/remove-icon.png') no-repeat scroll center center transparent;
+}
+
 .cart_items .stock
 {
   width: 10%;

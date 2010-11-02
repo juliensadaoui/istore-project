@@ -10,6 +10,9 @@
  */
 class cartActions extends sfActions
 {
+
+    private static $_itemClass = 'IStoreItem';
+
  /**
   * Executes index action
   *
@@ -30,6 +33,7 @@ class cartActions extends sfActions
     {
         $this->shoppingCart = $this->getUser()->getShoppingCart();
         $this->items = $this->getUser()->getItemShoppingCart();
+        $this->itemClass = self::$_itemClass;
     }
 
     /**
@@ -55,10 +59,10 @@ class cartActions extends sfActions
                 $shoppingCart = $this->getUser()->getShoppingCart();
 
                 // si le produit n'existe pas, on l'ajoute au panier
-                $shoppingCartItem = $shoppingCart->getItem($id);
+                $shoppingCartItem = $shoppingCart->getItem($id, self::$_itemClass);
                 if ($shoppingCartItem ===  null)
                 {
-                    $shoppingCartItem = new ShoppingCartItem($id);
+                    $shoppingCartItem = new sfShoppingCartItem(self::$_itemClass, $id);
                     $shoppingCartItem->setQuantity($quantity);
                     $shoppingCartItem->setPrice($item->getUnitCost());
                     $shoppingCart->addItem($shoppingCartItem);
@@ -90,7 +94,7 @@ class cartActions extends sfActions
             $id = $request->getParameter('id');
 
             $shoppingCart = $this->getUser()->getShoppingCart();
-            $shoppingCart->removeItem($id);
+            $shoppingCart->removeItem($id, self::$_itemClass);
 
             // on redirige vers le panier
             $this->forward('cart', 'show');
@@ -116,7 +120,7 @@ class cartActions extends sfActions
             // on recupere l'article du panier correspondant à l'identifiant
             //      passée en parametre
             $shoppingCart = $this->getUser()->getShoppingCart();
-            $shoppingCartItem = $shoppingCart->getItem($id);
+            $shoppingCartItem = $shoppingCart->getItem($id, self::$_itemClass);
 
             // on verifie que l'identifiant correspond à un panier
             if ($shoppingCartItem !==  null)
@@ -127,10 +131,10 @@ class cartActions extends sfActions
                 }
                 else if ($operation === 'decremente') {
                     if ($shoppingCartItem->getQuantity() == 1) {
-                        $shoppingCart->removeItem($id);
+                        $shoppingCart->removeItem($id, self::$_itemClass);
                     }
                     else {
-                        $shoppingCartItem = $shoppingCart->getItem($id);
+                        $shoppingCartItem = $shoppingCart->getItem($id, self::$_itemClass);
                         $shoppingCartItem->setQuantity($shoppingCartItem->getQuantity() - 1);
                     }
                 }

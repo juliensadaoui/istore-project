@@ -99,6 +99,8 @@ class IStoreItemTable extends Doctrine_Table
         }
 
         $alias = $q->getRootAlias();
+
+
         $q->addOrderBy($alias . '.updated_at DESC');
 
         return $q;
@@ -126,6 +128,7 @@ class IStoreItemTable extends Doctrine_Table
         }
 
         $alias = $q->getRootAlias();
+        $q->andWhere($alias . '.is_activated = ?', true);
         $q->addOrderBy($alias . '.created_at DESC');
 
         return $q;

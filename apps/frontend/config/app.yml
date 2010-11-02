@@ -4,3 +4,5 @@
 # default values
 all:
   max_items_on_category: 5
+  sf_guard_plugin:
+    routes_register: true

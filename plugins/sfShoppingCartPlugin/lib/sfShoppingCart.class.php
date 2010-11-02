@@ -20,9 +20,9 @@ class sfShoppingCart implements sfShoppingCartInterface
      *  Retourne la clé d'un article dans le tableau $_items
      *      Ce tableau contient les articles du panier
      *
-     * @param <type> $id
-     * @param <type> $class
-     * @return <type>
+     * @param int $id : identifiant unique de l'artice
+     * @param string $class : nom de la classe qui gére l'article
+     * @return sfShoppingCartItem : article du panier
      */
     private function getItemKey ($id, $class)
     {

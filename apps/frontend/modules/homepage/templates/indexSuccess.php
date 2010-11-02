@@ -1,5 +1,5 @@
 <div class="crumb_navigation">
-    Navigation: <span class="current">Home</span>
+    Navigation: <span class="current"><a href="<?php echo url_for('@homepage') ?>">Home</a></span>
 </div>
 
 <div class="homepage_content">
@@ -38,11 +38,9 @@
         </div>
 
         <div class="item_shoppingcart">
-            <form method="get" action="<?php echo url_for('cart_add'); ?>">
+            <form method="post" action="<?php echo url_for('@cart_add?id=' . $newsItem->getId() . '&quantity=1&sf_method=post'); ?>">
                 <fieldset>
                     <input type="submit" value="" class="add_shoppingcart_input" />
-                    <input type="hidden" name="id"value="<?php echo $newsItem->getId(); ?>" />
-                    <input type="hidden" name="quantity" value="1" />
                 </fieldset>
             </form>
         </div>
@@ -76,11 +74,9 @@
         </div>
 
         <div class="item_shoppingcart">
-            <form method="get" action="<?php echo url_for('cart_add'); ?>">
+            <form method="post" action="<?php echo url_for('@cart_add?id=' . $updatedItem->getId() . '&quantity=1&sf_method=post'); ?>">
                 <fieldset>
                     <input type="submit" value="" class="add_shoppingcart_input" />
-                    <input type="hidden" name="id" value="<?php echo $updatedItem->getId(); ?>" />
-                    <input type="hidden" name="quantity" value="1" />
                 </fieldset>
             </form>
         </div>

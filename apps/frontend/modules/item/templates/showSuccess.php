@@ -1,4 +1,14 @@
-<?php include_component('menu', 'left'); ?>
+<div class="crumb_navigation">
+    Navigation:
+        <a href="<?php echo url_for('@homepage') ?>"> Home ></a>
+        <a href="<?php echo url_for('category', $item->getIStoreCategory()); ?>"><?php echo $item->getIStoreCategory(); ?> ></a>
+        <span class="current">
+            <a href="<?php echo url_for('item', $item); ?>"><?php echo $item; ?></a>
+        </span>
+</div>
+
+<?php include_component('menu', 'left', array('category' => $item->getIStoreCategory())); ?>
+
 <div class="center_content">
     <div id="item_container_center">
         <div class="item_image">
@@ -56,13 +66,12 @@
                 <br />en stock
             </li>
             <li class="item_shoppingcart">
-                <form method="get" action="<?php echo url_for('cart_add'); ?>">
+                 <form method="post" action="<?php echo url_for('@cart_add?id=' . $item->getId() . '&sf_method=post'); ?>">
                     <fieldset>
                         <label>Quantité&nbsp;:</label><input name="quantity" value="1" type="text" accesskey="4" class="item_quantity_input" />
-                        <input type="submit" value="" class="add_shoppingcart_input" />
-                        <input type="hidden" name="id" value="<?php echo $item->getId(); ?>" />
+                         <input type="submit" value="" class="add_shoppingcart_input" />
                     </fieldset>
-                </form>
+                </form>-->
             </li>
         </ul>
     </div>

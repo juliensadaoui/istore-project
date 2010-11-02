@@ -32,7 +32,7 @@
                         <form id="search" action="/Accueil/Recherche/">
                             <fieldset>
                                 <input id="champRecherche" name="q" type="text" accesskey="4" value="" class="box" />
-                                <input type="submit" value="Recherche2" class="button_search" />
+                                <input type="submit" value="Recherche" class="button_search" />
                             </fieldset>
                         </form>
                     </div>
@@ -50,13 +50,6 @@
 
             <div id="content">
                 <?php include_component('menu', 'main'/* , array('selected_category' => $sf_user->getFlash('selected_category','')) */); ?>
-
-                        <!--
-                        <div class="crumb_navigation">
-                        Navigation: <span class="current">Home</span>
-
-                        </div>-->
-
 
                         <!--            <div class="center_content">-->
                 <?php echo $sf_content ?>
@@ -77,7 +70,7 @@
                 </div>
 
                 <div class="right_footer">
-                    <a href="index.html">home</a>
+                    <a href="<?php echo url_for('@homepage') ?>">home</a>
                     <a href="details.html">about</a>
                     <a href="details.html">sitemap</a>
                     <a href="details.html">rss</a>

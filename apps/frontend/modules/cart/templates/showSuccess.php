@@ -1,3 +1,11 @@
+<div class="crumb_navigation">
+    Navigation:
+        <a href="<?php echo url_for('@homepage') ?>"> Home ></a>
+        <span class="current">
+            <a href="<?php echo url_for('@cart_show'); ?>"> Panier</a>
+        </span>
+</div>
+
 <div class="center_content">
     <div id="cart">
         <h1>
@@ -22,9 +30,11 @@
                             <?php foreach ($headers as $header): ?>
                                 <?php if ($header === "Clear"): ?>
                                 <th>
-                                    <a href="<?php echo url_for('cart_clear') ?>">
-                                        <img src="/images/remove-icon.png" alt="remove" title="remove" border="0" width="20" height="20" />
-                                    </a>
+                                    <form method="post" action="<?php echo url_for('@cart_clear?sf_method=post'); ?>">
+                                        <fieldset>
+                                            <input type="submit" value="" class="remove" />
+                                        </fieldset>
+                                    </form>
                                 </th>
                                 <?php else: ?>
                                 <th><?php echo $header; ?></th>
@@ -40,7 +50,7 @@
                             </tr>
 
                         <?php foreach ($items as $i => $item): ?>
-                        <?php $cartItem = $shoppingCart->getItem($item->getId()); ?>
+                        <?php $cartItem = $shoppingCart->getItem($item->getId(), $itemClass); ?>
                             <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
 
                                     <td class="image">
@@ -57,13 +67,29 @@
                                         <img src="/images/stock_dispo.png" alt="" title="" border="0" width="20" height="20" /><br />en stock
                                     </td>
                                     <td class="quantity">
-                                        <a href="<?php echo url_for('cart/update?id=' . $item->getId()) ?>&operation=decremente">
-                                            <img src="/images/delete-icon.png" alt="delete" title="delete" border="0" width="20" height="20" />
-                                        </a>
-                                            <span><?php echo $cartItem->getQuantity(); ?></span>
-                                        <a href="<?php echo url_for('cart/update?id=' . $item->getId()) ?>&operation=incremente">
-                                            <img src="/images/add-icon.png" alt="add" title="add" border="0" width="20" height="20" />
-                                        </a>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <form method="post" action="<?php echo url_for('@cart_update?id=' . $item->getId() . '&operation=decremente&sf_method=post'); ?>">
+                                                            <fieldset>
+                                                                <input type="submit" value="" class="delete" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <span><?php echo $cartItem->getQuantity(); ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <form method="post" action="<?php echo url_for('@cart_update?id=' . $item->getId() . '&operation=incremente&sf_method=post'); ?>">
+                                                            <fieldset>
+                                                                <input type="submit" value="" class="add" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </td>
                                     <td class="price">
                                 <?php echo $item->getUnitCost(); ?>&nbsp;€
@@ -72,9 +98,11 @@
                                 <?php echo $cartItem->getTotalPrice(); ?>&nbsp;€
                                     </td>
                                     <td>
-                                        <a href="<?php echo url_for('cart/delete?id=' . $item->getId()) ?>">
-                                            <img src="/images/remove-icon.png" alt="remove" title="remove" border="0" width="20" height="20" />
-                                        </a>
+                                        <form method="post" action="<?php echo url_for('@cart_delete?id=' . $item->getId() . '&sf_method=post'); ?>">
+                                            <fieldset>
+                                                <input type="submit" value="" class="remove" />
+                                            </fieldset>
+                                        </form>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

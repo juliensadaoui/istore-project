@@ -1,6 +1,14 @@
 <?php slot('title', sprintf ('Articles de la catégorie %s', $category->getName())) ?>
 
-<?php include_component('menu', 'left'); ?>
+<div class="crumb_navigation">
+    Navigation:
+        <a href="<?php echo url_for('@homepage') ?>"> Home ></a>
+        <span class="current">
+            <a href="<?php echo url_for('category', $category); ?>"><?php echo $category; ?></a>
+        </span>
+</div>
+
+<?php include_component('menu', 'left', array('category' => $category)); ?>
 
 <div class="center_content">
     <!--<div class="homepage_title">-->

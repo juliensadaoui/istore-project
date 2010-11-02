@@ -18,6 +18,16 @@ class sfShoppingCartItem
     private $_class;
 
     /**
+     *
+     * @param string $class     nom de la class de l'article
+     * @param int $id           identifiant unique de la classe
+     */
+    public function  __construct($class, $id) {
+        $this->_class = $class;
+        $this->_id = $id;
+    }
+
+    /**
      *  Retourne l'identifiant unique du produit
      *
      * @return integer identifiant unique du produit

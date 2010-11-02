@@ -24,10 +24,10 @@ class itemActions extends sfActions
     $this->forward404Unless($this->item);
   }
 
-//  public function executeNew(sfWebRequest $request)
-//  {
-//    $this->form = new IStoreItemForm();
-//  }
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = new IStoreItemForm();
+  }
 //
 //  public function executeCreate(sfWebRequest $request)
 //  {

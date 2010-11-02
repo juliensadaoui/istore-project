@@ -58,32 +58,48 @@ cart_show:
 
 # Ajoute un article dans le panier
 cart_add:
-  url:    /cart/add
+  url:    /cart/add/:id
   param:  { module: cart, action: add }
+  class: sfRequestRoute
   requirements:
     id: \d+
-    quantity: \d+
-    sf_method: [get]
+    sf_method: [post]
 
 # Supprime un article du panier
 cart_delete:
-  url:    /cart/delete
+  url:    /cart/delete/:id
   param:  { module: cart, action: delete }
+  class: sfRequestRoute
   requirements:
     id: \d+
-    sf_method: [get]
+    sf_method: [post]
 
 # Mise à jour de la quantité d'un article
 cart_update:
-  url:    /cart/update
+  url:    /cart/update/:id
   param:  { module: cart, action: update }
+  class: sfRequestRoute
   requirements:
     id: \d+
-    sf_method: [get]
+    sf_method: [post]
 
 # Vide le panier
 cart_clear:
   url:    /cart/clear
   param:  { module: cart, action: clear }
+  class: sfRequestRoute
   requirements:
-    sf_method: [get]
+    sf_method: [post]
+
+
+#sf_guard_signin:
+#  url:   /login
+#  param: { module: sfGuardAuth, action: signin }
+#
+#sf_guard_signout:
+#  url:   /logout
+#  param: { module: sfGuardAuth, action: signout }
+#
+#sf_guard_password:
+#  url:   /request_password
+#  param: { module: sfGuardAuth, action: password }

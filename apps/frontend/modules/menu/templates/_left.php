@@ -1,7 +1,3 @@
-<div class="crumb_navigation">
-    Navigation: <span class="current"><?php echo $category->getName(); ?></span>
-</div>
-
 <div class="left_content">
     <h3><?php echo $category->getName(); ?></h3>
 
