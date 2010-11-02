@@ -8,15 +8,18 @@
  * @property string $name
  * @property integer $parent_category_id
  * @property IStoreCategory $IStoreCategory
+ * @property Doctrine_Collection $category
  * @property Doctrine_Collection $IStoreItems
  * 
  * @method string              getName()               Returns the current record's "name" value
  * @method integer             getParentCategoryId()   Returns the current record's "parent_category_id" value
  * @method IStoreCategory      getIStoreCategory()     Returns the current record's "IStoreCategory" value
+ * @method Doctrine_Collection getCategory()           Returns the current record's "category" collection
  * @method Doctrine_Collection getIStoreItems()        Returns the current record's "IStoreItems" collection
  * @method IStoreCategory      setName()               Sets the current record's "name" value
  * @method IStoreCategory      setParentCategoryId()   Sets the current record's "parent_category_id" value
  * @method IStoreCategory      setIStoreCategory()     Sets the current record's "IStoreCategory" value
+ * @method IStoreCategory      setCategory()           Sets the current record's "category" collection
  * @method IStoreCategory      setIStoreItems()        Sets the current record's "IStoreItems" collection
  * 
  * @package    i-store
@@ -46,6 +49,10 @@ abstract class BaseIStoreCategory extends sfDoctrineRecord
         $this->hasOne('IStoreCategory', array(
              'local' => 'parent_category_id',
              'foreign' => 'id'));
+
+        $this->hasMany('IStoreCategory as category', array(
+             'local' => 'id',
+             'foreign' => 'parent_category_id'));
 
         $this->hasMany('IStoreItem as IStoreItems', array(
              'local' => 'id',

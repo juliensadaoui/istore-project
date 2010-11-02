@@ -18,6 +18,7 @@
  * @property IStoreCategory $IStoreCategory
  * @property IStoreBrand $IStoreBrand
  * @property Doctrine_Collection $IStoreComments
+ * @property Doctrine_Collection $item
  * 
  * @method integer             getCategoryId()        Returns the current record's "category_id" value
  * @method integer             getBrandId()           Returns the current record's "brand_id" value
@@ -32,6 +33,7 @@
  * @method IStoreCategory      getIStoreCategory()    Returns the current record's "IStoreCategory" value
  * @method IStoreBrand         getIStoreBrand()       Returns the current record's "IStoreBrand" value
  * @method Doctrine_Collection getIStoreComments()    Returns the current record's "IStoreComments" collection
+ * @method Doctrine_Collection getItem()              Returns the current record's "item" collection
  * @method IStoreItem          setCategoryId()        Sets the current record's "category_id" value
  * @method IStoreItem          setBrandId()           Sets the current record's "brand_id" value
  * @method IStoreItem          setName()              Sets the current record's "name" value
@@ -45,6 +47,7 @@
  * @method IStoreItem          setIStoreCategory()    Sets the current record's "IStoreCategory" value
  * @method IStoreItem          setIStoreBrand()       Sets the current record's "IStoreBrand" value
  * @method IStoreItem          setIStoreComments()    Sets the current record's "IStoreComments" collection
+ * @method IStoreItem          setItem()              Sets the current record's "item" collection
  * 
  * @package    i-store
  * @subpackage model
@@ -116,6 +119,10 @@ abstract class BaseIStoreItem extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('IStoreComment as IStoreComments', array(
+             'local' => 'id',
+             'foreign' => 'item_id'));
+
+        $this->hasMany('IStoreOrderLine as item', array(
              'local' => 'id',
              'foreign' => 'item_id'));
 
