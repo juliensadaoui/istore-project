@@ -11,25 +11,25 @@
  * @property string $city
  * @property integer $zipcode
  * @property string $country
- * @property IStoreCustomer $IStoreCustomer
+ * @property IStoreCustomer $Customer
  * @property Doctrine_Collection $address
  * 
- * @method integer             getCustomerId()     Returns the current record's "customer_id" value
- * @method string              getStreet()         Returns the current record's "street" value
- * @method string              getState()          Returns the current record's "state" value
- * @method string              getCity()           Returns the current record's "city" value
- * @method integer             getZipcode()        Returns the current record's "zipcode" value
- * @method string              getCountry()        Returns the current record's "country" value
- * @method IStoreCustomer      getIStoreCustomer() Returns the current record's "IStoreCustomer" value
- * @method Doctrine_Collection getAddress()        Returns the current record's "address" collection
- * @method IStoreAddress       setCustomerId()     Sets the current record's "customer_id" value
- * @method IStoreAddress       setStreet()         Sets the current record's "street" value
- * @method IStoreAddress       setState()          Sets the current record's "state" value
- * @method IStoreAddress       setCity()           Sets the current record's "city" value
- * @method IStoreAddress       setZipcode()        Sets the current record's "zipcode" value
- * @method IStoreAddress       setCountry()        Sets the current record's "country" value
- * @method IStoreAddress       setIStoreCustomer() Sets the current record's "IStoreCustomer" value
- * @method IStoreAddress       setAddress()        Sets the current record's "address" collection
+ * @method integer             getCustomerId()  Returns the current record's "customer_id" value
+ * @method string              getStreet()      Returns the current record's "street" value
+ * @method string              getState()       Returns the current record's "state" value
+ * @method string              getCity()        Returns the current record's "city" value
+ * @method integer             getZipcode()     Returns the current record's "zipcode" value
+ * @method string              getCountry()     Returns the current record's "country" value
+ * @method IStoreCustomer      getCustomer()    Returns the current record's "Customer" value
+ * @method Doctrine_Collection getAddress()     Returns the current record's "address" collection
+ * @method IStoreAddress       setCustomerId()  Sets the current record's "customer_id" value
+ * @method IStoreAddress       setStreet()      Sets the current record's "street" value
+ * @method IStoreAddress       setState()       Sets the current record's "state" value
+ * @method IStoreAddress       setCity()        Sets the current record's "city" value
+ * @method IStoreAddress       setZipcode()     Sets the current record's "zipcode" value
+ * @method IStoreAddress       setCountry()     Sets the current record's "country" value
+ * @method IStoreAddress       setCustomer()    Sets the current record's "Customer" value
+ * @method IStoreAddress       setAddress()     Sets the current record's "address" collection
  * 
  * @package    i-store
  * @subpackage model
@@ -74,7 +74,7 @@ abstract class BaseIStoreAddress extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('IStoreCustomer', array(
+        $this->hasOne('IStoreCustomer as Customer', array(
              'local' => 'customer_id',
              'foreign' => 'id'));
 

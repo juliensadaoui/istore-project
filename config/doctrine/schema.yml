@@ -84,7 +84,13 @@ IStoreAddress:
     zipcode:  { type: integer, notnull: true }
     country:  { type: string(255), notnull: true }
   relations:
-    IStoreCustomer: { local: customer_id, foreign: id, foreignAlias: IStoreAddresses }
+    Customer:
+      class: IStoreCustomer
+      local: customer_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Address
 
 IStoreCreditCard:
   actAs: { Timestampable: ~ }

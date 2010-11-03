@@ -11,22 +11,22 @@
  * @property integer $civility
  * @property date $date_of_birth
  * @property sfGuardUser $User
- * @property Doctrine_Collection $IStoreAddresses
+ * @property IStoreAddress $Address
  * 
- * @method integer             getId()              Returns the current record's "id" value
- * @method integer             getUserId()          Returns the current record's "user_id" value
- * @method string              getTelephone()       Returns the current record's "telephone" value
- * @method integer             getCivility()        Returns the current record's "civility" value
- * @method date                getDateOfBirth()     Returns the current record's "date_of_birth" value
- * @method sfGuardUser         getUser()            Returns the current record's "User" value
- * @method Doctrine_Collection getIStoreAddresses() Returns the current record's "IStoreAddresses" collection
- * @method IStoreCustomer      setId()              Sets the current record's "id" value
- * @method IStoreCustomer      setUserId()          Sets the current record's "user_id" value
- * @method IStoreCustomer      setTelephone()       Sets the current record's "telephone" value
- * @method IStoreCustomer      setCivility()        Sets the current record's "civility" value
- * @method IStoreCustomer      setDateOfBirth()     Sets the current record's "date_of_birth" value
- * @method IStoreCustomer      setUser()            Sets the current record's "User" value
- * @method IStoreCustomer      setIStoreAddresses() Sets the current record's "IStoreAddresses" collection
+ * @method integer        getId()            Returns the current record's "id" value
+ * @method integer        getUserId()        Returns the current record's "user_id" value
+ * @method string         getTelephone()     Returns the current record's "telephone" value
+ * @method integer        getCivility()      Returns the current record's "civility" value
+ * @method date           getDateOfBirth()   Returns the current record's "date_of_birth" value
+ * @method sfGuardUser    getUser()          Returns the current record's "User" value
+ * @method IStoreAddress  getAddress()       Returns the current record's "Address" value
+ * @method IStoreCustomer setId()            Sets the current record's "id" value
+ * @method IStoreCustomer setUserId()        Sets the current record's "user_id" value
+ * @method IStoreCustomer setTelephone()     Sets the current record's "telephone" value
+ * @method IStoreCustomer setCivility()      Sets the current record's "civility" value
+ * @method IStoreCustomer setDateOfBirth()   Sets the current record's "date_of_birth" value
+ * @method IStoreCustomer setUser()          Sets the current record's "User" value
+ * @method IStoreCustomer setAddress()       Sets the current record's "Address" value
  * 
  * @package    i-store
  * @subpackage model
@@ -68,7 +68,7 @@ abstract class BaseIStoreCustomer extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id'));
 
-        $this->hasMany('IStoreAddress as IStoreAddresses', array(
+        $this->hasOne('IStoreAddress as Address', array(
              'local' => 'id',
              'foreign' => 'customer_id'));
     }

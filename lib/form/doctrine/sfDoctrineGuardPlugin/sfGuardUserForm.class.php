@@ -108,17 +108,17 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       // on personnalise les labels
       $this->widgetSchema->setLabels(
               array(
-                 'username' => 'Nom d\'utilisateur :',
-                 'password' => 'Mot de passe :',
-                 'repassword' => 'Confirmation du mot de passe :',
-                 'email_address' => 'Adresse e-mail :',
-                  're_email_address' =>  'Confirmation de l\'adresse e-mail :',
-                 'last_name' => 'Nom :',
-                 'first_name' => 'Prenom :'
+                 'username' => 'Nom d\'utilisateur* :',
+                 'password' => 'Mot de passe* :',
+                 'repassword' => 'Confirmation du mot de passe* :',
+                 'email_address' => 'Adresse e-mail* :',
+                  're_email_address' =>  'Confirmation de l\'adresse e-mail* :',
+                 'last_name' => 'Nom* :',
+                 'first_name' => 'Prenom* :'
               ));
 
       $profileForm = new IStoreCustomerForm($this->object->Profile);
-      $this->embedMergeForm('Informations Personnelles', $profileForm);
+      $this->embedMergeForm('Profile', $profileForm);
 
   }
 }
