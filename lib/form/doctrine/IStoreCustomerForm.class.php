@@ -26,9 +26,12 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
         $date = array();
         for ($i = 1940 ; $i < 2011 ; $i++)
         {
-            $date[] = $i;
+            $date[$i] = $i;
         }
-        $this->widgetSchema['date_of_birth'] = new sfWidgetFormDate(array( 'years' => $date));
+        $this->widgetSchema['date_of_birth'] = new sfWidgetFormDate(
+                array(
+                    'years' => $date
+                    ));
         
       // on configure la position des champs du formulaire
       $this->getWidgetSchema()->setPositions(

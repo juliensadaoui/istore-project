@@ -42,14 +42,6 @@ item:
   requirements:
     id: \d+
 
-# generic rules
-# please, remove them by adding more specific rules
-#default_index:
-#  url:   /:module
-#  param: { action: index }
-#
-#default:
-#  url:   /:module/:action/*
 
 # Affiche la panier virtuel de l'utilisateur
 cart_show:
@@ -92,23 +84,22 @@ cart_clear:
     sf_method: [post]
 
 
-# Inscription du client
-register:
-  url:  /register
-  param: { module: customer, action: register }
 
-# Acceder à la page du compte
+# Défini automatiquement toutes les actions
+#    pour le module account
+account:
+  class:   sfDoctrineRouteCollection
+  options: { model: sfGuardUser }
+
+# Acceder à la page du compte client
 account_show:
   url: /account/show
-  param: { module: customer, action: show }
-
-account_edit:
-  url:  /account/edit
-  param: { module: customer, action: edit }
+  param: { module: account, action: show }
 
 
-default:
-  url:   /:module/:action/*
+
+#default:
+#  url:   /:module/:action/*
 
 #sf_guard_signin:
 #  url:   /login

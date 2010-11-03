@@ -67,7 +67,7 @@
 
         </div>
 
-        <p><a href="<?php echo url_for('@account_edit'); ?>">Modifier votre compte</a></p>
+        <p><a href="<?php echo url_for('account_edit', $user); ?>">Modifier votre compte</a></p>
 
     </div>
 </div>
