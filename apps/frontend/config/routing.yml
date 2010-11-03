@@ -97,6 +97,12 @@ register:
   url:  /register
   param: { module: customer, action: register }
 
+# Acceder à la page du compte
+account_show:
+  url: /account/show
+  param: { module: customer, action: show }
+
+
 default:
   url:   /:module/:action/*
 #sf_guard_signin:

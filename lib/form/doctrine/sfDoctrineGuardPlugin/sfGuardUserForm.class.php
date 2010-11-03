@@ -120,5 +120,8 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       $profileForm = new IStoreCustomerForm($this->object->Profile);
       $this->embedMergeForm('Profile', $profileForm);
 
+      $addressForm = new IStoreAddressForm($this->object->Address);
+      $this->embedMergeForm('Adresse', $addressForm);
+
   }
 }

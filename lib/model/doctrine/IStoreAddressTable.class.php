@@ -16,4 +16,26 @@ class IStoreAddressTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('IStoreAddress');
     }
+
+    /**
+     *  Retourne la requete doctrine permettant de récupérer
+     *      la liste des addresses des client. La requete peut
+     *      être ajusté en fonction du besoin. 
+     *
+     * @param Doctrine_Query $q  requete Doctrine à combiner
+     * @return Doctrine_Query  nouvelle requête Doctrine résultant des
+     *      requêtes combinés
+     */
+    public function addAddressesQuery(Doctrine_Query $q = null)
+    {
+        if (is_null($q))
+        {
+          $q = Doctrine_Query::create()
+            ->from('IStoreAddress i');
+        }
+
+        $alias = $q->getRootAlias();
+
+        return $q;
+    }
 }

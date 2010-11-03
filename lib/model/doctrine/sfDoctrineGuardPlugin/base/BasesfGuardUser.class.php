@@ -22,6 +22,7 @@
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
  * @property IStoreCustomer $Profile
+ * @property IStoreAddress $Address
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -40,6 +41,7 @@
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method IStoreCustomer        getProfile()               Returns the current record's "Profile" value
+ * @method IStoreAddress         getAddress()               Returns the current record's "Address" value
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -57,6 +59,7 @@
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setProfile()               Sets the current record's "Profile" value
+ * @method sfGuardUser           setAddress()               Sets the current record's "Address" value
  * 
  * @package    i-store
  * @subpackage model
@@ -153,6 +156,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasOne('IStoreCustomer as Profile', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasOne('IStoreAddress as Address', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 
