@@ -37,6 +37,8 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
             'choices'  => Doctrine_Core::getTable('IStoreCustomer')->getCivityTypes(),
             'expanded' => false
         ));
+        $this->validatorSchema['civility']->setMessage('required', 'champ non renseigné');
+        $this->validatorSchema['date_of_birth']->setMessage('required', 'champ non renseigné');
 
         // on parametre le filtre du champ telephone
         $this->validatorSchema['telephone'] = new sfValidatorRegex(
@@ -53,8 +55,8 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
         $this->widgetSchema->setLabels(
                 array(
                     'civility' => 'Civilité* : ',
-                    'telephone' => 'Telephone : ',
-                    'date_of_birth' => 'Date de naissance : '
+                    'telephone' => 'Telephone* : ',
+                    'date_of_birth' => 'Date de naissance* : '
                 ));
 
       $addressForm = new IStoreAddressForm($this->object->Address);

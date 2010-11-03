@@ -11,6 +11,18 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
+.center_content h1,
+.center_content p
+{
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+.center_content p
+{
+    font-size: 14px;
+}
+
 #container_account
 {
     float: left;

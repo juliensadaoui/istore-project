@@ -118,7 +118,7 @@ class sfGuardUserForm extends PluginsfGuardUserForm
               ));
 
       $profileForm = new IStoreCustomerForm($this->object->Profile);
-      $this->embedMergeForm('Informations Personnelles', $profileForm);
+      $this->embedMergeForm('Profile', $profileForm);
 
   }
 }
