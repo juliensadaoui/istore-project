@@ -5,22 +5,7 @@
         <span class="current"><a href="#">Mon compte client</a></span>
 </div>
 
-
-<div id="menu_customer">
-    <div id="menu_account">
-        <div class="menu_customer_img">
-        </div>
-        <div class="menu_customer_text">
-        </div>
-    </div>
-
-    <div id="menu_order">
-        <div class="menu_customer_img">
-        </div>
-        <div class="menu_customer_text">
-        </div>
-    </div>
-</div>
+<?php include_partial('menu') ?>
 
 <div id="center_content_customer">
     <p>
@@ -81,6 +66,8 @@
             </table>
 
         </div>
+
+        <p><a href="<?php echo url_for('@account_edit'); ?>">Modifier votre compte</a></p>
 
     </div>
 </div>

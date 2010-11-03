@@ -10,19 +10,23 @@
  */
 class itemActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->items = Doctrine_Core::getTable('IStoreItem')
-      ->createQuery('a')
-      ->execute();
-  }
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->items = Doctrine_Core::getTable('IStoreItem')
+            ->createQuery('a')->execute();
+    }
 
-  public function executeShow(sfWebRequest $request)
-  {
-    $this->item = $this->getRoute()->getObject();
-
-    $this->forward404Unless($this->item);
-  }
+    /**
+     *  Action 'show' du module 'item'. Cette action permet d'afficher
+     *      la page détaillée d'un article.
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeShow(sfWebRequest $request)
+    {
+        $this->item = $this->getRoute()->getObject();
+        $this->forward404Unless($this->item);
+    }
 
 //  public function executeNew(sfWebRequest $request)
 //  {

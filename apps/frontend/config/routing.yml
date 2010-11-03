@@ -102,9 +102,14 @@ account_show:
   url: /account/show
   param: { module: customer, action: show }
 
+account_edit:
+  url:  /account/edit
+  param: { module: customer, action: edit }
+
 
 default:
   url:   /:module/:action/*
+
 #sf_guard_signin:
 #  url:   /login
 #  param: { module: sfGuardAuth, action: signin }

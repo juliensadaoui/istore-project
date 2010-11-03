@@ -194,3 +194,11 @@ li.error span
 {
     font-weight: bold;
 }
+
+#center_content_customer a
+{
+    text-decoration:  none;
+    font-size: 14px;
+    text-align: right;
+    padding-bottom: 14px;
+}

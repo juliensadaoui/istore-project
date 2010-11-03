@@ -37,6 +37,30 @@ class customerActions extends sfActions
     }
 
     /**
+     *  Action 'edit' du module 'customer'. Cette action permet d'afficher le formulaire
+     *      permettant de modifier les informations d'un compte client.
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeEdit(sfWebRequest $request)
+    {
+        $this->forward404Unless($user = Doctrine_Core::getTable('sfGuardUser')->find($this->getUser()->getGuardUser()->getId()), sprintf('Object sf_guard_user does not exist (%s).', $request->getParameter('id')));
+        $this->form = new sfGuardUserForm($user);
+    }
+
+    public function executeUpdate(sfWebRequest $request)
+    {
+        $userId = $this->getUser()->getGuardUser()->getId();
+        $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+        $this->forward404Unless($user = Doctrine_Core::getTable('sfGuardUser')->find($userId), sprintf('Object sf_guard_user does not exist (%s).', $userId ));
+        $this->form = new sfGuardUserForm($user);
+
+        $this->processForm($request, $this->form);
+
+        $this->setTemplate('edit');
+    }
+    
+    /**
     *  Execute l'action 'register' du module 'customer'. Affiche le formulaire
     *        d'inscription pour un client.
     *

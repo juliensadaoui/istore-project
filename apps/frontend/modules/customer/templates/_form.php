@@ -1,7 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
-<form action="<?php echo url_for('customer/create'); ?>" method="post">
+<form action="<?php echo url_for('customer/' . (($form->getObject()->isNew()) ? 'create' : 'update')); ?>" method="post">
         <fieldset>
             <div id="container_account">
                 <div class="title">Identifiants</div>
@@ -53,11 +53,11 @@
 
                 </div>
 
-        <div class="title">Valider votre inscription</div>
+        <div class="title"><?php echo (($form->getObject()->isNew()) ? 'Valider votre inscription' : 'Enregistrer vos modification'); ?></div>
         <div class="container_content">
             <ul>
                 <li>
-            <p><input type="submit" id='submit' value="<?php echo 'S\'inscrire'; ?>" /></p>
+            <p><input type="submit" id='submit' value="<?php echo (($form->getObject()->isNew()) ? 'S\'inscrire' : 'Modifier'); ?>" /></p>
                 </li>
             </ul>
         </div>
