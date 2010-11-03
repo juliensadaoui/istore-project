@@ -17,11 +17,16 @@
                 <div id="header">
                     <div class="top_right">
                         <ul id="connexion">
-                            <li><a href="<?php echo url_for('@register') ?>">S'inscrire</a></li>
-                            <li>|</li>
-                            <li><a href="<?php echo url_for('@account_show') ?>">Mon compte</a></li>
-                            <li>|</li>
-                            <li><a href="">Newsletter</a></li>
+                            <?php if ($sf_user->isAuthenticated()): ?>
+                                <li>
+                                    <a href="<?php echo url_for('@account_show') ?>">Mon compte client </a>
+                                    <a href="<?php echo url_for('@sf_guard_signout') ?>"> (Deconnexion)</a>
+                                </li>
+                            <?php else: ?>
+                                <li><a href="<?php echo url_for('@register') ?>">S'inscrire</a></li>
+                                <li>|</li>
+                                <li><a href="<?php echo url_for('@account_show') ?>">Mon compte</a></li>
+                            <?php endif; ?>
                             <!-- <li>|</li>
                             <li><a href="/Accueil/Aide/">Aide</a></li> -->
                         </ul>

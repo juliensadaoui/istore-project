@@ -1,0 +1,196 @@
+/* 
+    Document   : register
+    Created on : 3 nov. 2010, 00:17:10
+    Author     : julien
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.center_content h1,
+.center_content p
+{
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+.center_content p
+{
+    font-size: 14px;
+}
+
+#container_account
+{
+    float: left;
+    width: 430px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#container_address
+{
+    float: right;
+    width: 400px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#container_account .title,
+#container_address .title
+{
+    font-size: 14px;
+    font-weight: bold;
+    background-color:#a29d9d;
+    padding: 5px 0 5px 20px;
+}
+
+
+
+.container_content ,
+#container_address_content
+{
+    border: 1px solid #a29d9d;
+    border-top: 0 none;
+    -moz-border-radius: 0 0 5px 5px ;
+    -webkit-border-radius: 0 0 5px 5px ;
+    margin-bottom: 30px;
+}
+
+.container_content ul,
+#container_address_content ul
+{
+    list-style: none;
+    text-decoration: none;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.container_content li,
+#container_address_content li
+{
+    padding-bottom: 20px;
+}
+
+.container_content li span,
+#container_address_content li span
+{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.container_content input,
+#container_address_content input,
+#container_address_content select
+{
+    float: right;
+    margin-right: 30px;
+    width: 150px;
+}
+
+#container_account select
+{
+    margin-left: 30px;
+}
+
+.container_content input:hover,
+#container_address_content input:hover
+{
+    border: 1px solid #41A9D8;
+}
+
+li.error
+{
+    color:#8a1f11;
+    border-color:#FBC2C4;
+    font-size: 12px;
+    padding-bottom: 0px;
+    padding-right: 30px;
+    text-align: right;
+}
+
+li.error span
+{
+    font-weight: normal;
+}
+
+#menu_customer
+{
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+#menu_account,
+#menu_order
+{
+    width: 200px;
+    height: 100px;
+    border: 1px solid #9A9A9A;
+}
+
+#menu_order
+{
+    margin-top: 20px;
+}
+
+#center_content_customer
+{
+    float: left;
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    border: 1px solid #9A9A9A;
+}
+
+#center_content_customer p
+{
+    font-size: 13px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+#center_content_customer p span
+{
+    font-size: 14px;
+    color:#339933;
+    font-weight: bold;
+}
+
+#center_content_customer #container_account
+{
+    width: 600px;
+}
+
+
+#center_content_customer table
+{
+    width: 500px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#center_content_customer td
+{
+    height: 30px;
+}
+
+#center_content_customer td
+{
+    font-size: 14px;
+}
+
+#center_content_customer td.field
+{
+    font-weight: bold;
+}

@@ -84,6 +84,8 @@ a.lang{
 #connexion li {
     display:inline;
     margin:0 5px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 #connexion a:link, #connexion a:visited, #connexion a:active {
