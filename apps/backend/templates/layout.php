@@ -9,6 +9,10 @@
     <?php include_javascripts() ?>
   </head>
   <body>
+      <a href="item">Item&nbsp;&nbsp;</a> <a href="brand">Brand&nbsp;&nbsp;</a><a href="addre">Adress&nbsp;&nbsp;</a>
+      <a href="category">Category&nbsp;&nbsp;</a><a href="comment">Comment&nbsp;&nbsp;</a>
+      <a href="creditcard">CreditCard&nbsp;&nbsp;</a><a href="customer">Customer&nbsp;&nbsp;</a>
+      <a href="order">Order&nbsp;&nbsp;&nbsp;</a><a href="orderline">OrderLine</a>
     <?php echo $sf_content ?>
   </body>
 </html>
