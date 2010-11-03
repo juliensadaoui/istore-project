@@ -16,7 +16,7 @@ abstract class BaseIStoreAddressForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'customer_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreCustomer'), 'add_empty' => false)),
+      'customer_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Customer'), 'add_empty' => false)),
       'street'      => new sfWidgetFormInputText(),
       'state'       => new sfWidgetFormInputText(),
       'city'        => new sfWidgetFormInputText(),
@@ -28,7 +28,7 @@ abstract class BaseIStoreAddressForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'customer_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreCustomer'))),
+      'customer_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Customer'))),
       'street'      => new sfValidatorString(array('max_length' => 255)),
       'state'       => new sfValidatorString(array('max_length' => 255)),
       'city'        => new sfValidatorString(array('max_length' => 255)),

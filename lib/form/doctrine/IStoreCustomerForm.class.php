@@ -24,10 +24,40 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
                   'date_of_birth',    /*  date de naissance du client */
                   ));
 
+      // on configure la position des champs du formulaire
+      $this->getWidgetSchema()->setPositions(
+              array(
+                  'id',
+                  'civility',
+                  'telephone',
+                  'date_of_birth',
+                  ));
+
         $this->widgetSchema['civility'] = new sfWidgetFormChoice(array(
             'choices'  => Doctrine_Core::getTable('IStoreCustomer')->getCivityTypes(),
-            'expanded' => true,
+            'expanded' => false
         ));
-       
+
+        // on parametre le filtre du champ telephone
+        $this->validatorSchema['telephone'] = new sfValidatorRegex(
+                    array(
+                        'pattern' => '#^[0-9]{10}$#'
+                    ),
+                    array(
+                        'invalid' => 'Le numéro de téléphone est invalid.',
+                        'required' => 'champ non renseigné'
+                    ));
+
+
+        // on configure les labels du formulaire
+        $this->widgetSchema->setLabels(
+                array(
+                    'civility' => 'Civilité* : ',
+                    'telephone' => 'Telephone : ',
+                    'date_of_birth' => 'Date de naissance : '
+                ));
+
+      $addressForm = new IStoreAddressForm($this->object->Address);
+      $this->embedMergeForm('Adresse', $addressForm);
     }
 }

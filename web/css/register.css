@@ -11,16 +11,26 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-#container_create_account
+#container_account
 {
     float: left;
-    width: 500px;
+    width: 430px;
     margin-right: 10px;
     margin-top: 10px;
-    margin-left: 100px;
+    margin-left: 30px;
 }
 
-#container_create_account .title
+#container_address
+{
+    float: right;
+    width: 400px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#container_account .title,
+#container_address .title
 {
     font-size: 14px;
     font-weight: bold;
@@ -28,7 +38,9 @@
     padding: 5px 0 5px 20px;
 }
 
-#container_content {
+
+
+.container_content {
     border: 1px solid #a29d9d;
     border-top: 0 none;
     -moz-border-radius: 0 0 5px 5px ;
@@ -36,28 +48,50 @@
     margin-bottom: 30px;
 }
 
-#container_content ul
+.container_content ul
 {
     list-style: none;
     text-decoration: none;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-#container_content li
+.container_content li
 {
     padding-bottom: 20px;
 }
 
-#container_content li span
+.container_content li span
 {
     font-size: 13px;
     font-weight: bold;
 }
 
-#container_content input
+.container_content input,
+#container_address select
 {
     float: right;
-    margin-right: 50px;
+    margin-right: 30px;
+}
+
+#container_address select
+{
     width: 150px;
+}
+
+#container_account select
+{
+    margin-left: 30px;
+}
+
+.container_content input
+{
+    width: 150px;
+}
+
+.container_content input:hover {
+    border: 1px solid #41A9D8;
 }
 
 li.error
@@ -66,24 +100,13 @@ li.error
     border-color:#FBC2C4;
     font-size: 12px;
     padding-bottom: 0px;
+    padding-right: 30px;
+    text-align: right;
 }
 
 li.error span
 {
-    float: right;
-    margin-right: 50px;
     font-weight: normal;
 }
 
-ul.radio_list
-{
-    display: block;
-}
 
-
-.radio_list li
-{
-    height: 15px;
-    width: 50px;
-    margin-bottom: 0px;
-}

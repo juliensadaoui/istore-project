@@ -13,7 +13,7 @@ abstract class BaseIStoreAddressFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'customer_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreCustomer'), 'add_empty' => true)),
+      'customer_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Customer'), 'add_empty' => true)),
       'street'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'state'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'city'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -24,7 +24,7 @@ abstract class BaseIStoreAddressFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'customer_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('IStoreCustomer'), 'column' => 'id')),
+      'customer_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Customer'), 'column' => 'id')),
       'street'      => new sfValidatorPass(array('required' => false)),
       'state'       => new sfValidatorPass(array('required' => false)),
       'city'        => new sfValidatorPass(array('required' => false)),
