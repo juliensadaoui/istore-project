@@ -17,7 +17,7 @@ class IStoreCustomerTable extends Doctrine_Table
         return Doctrine_Core::getTable('IStoreCustomer');
     }
 
-    static public $civityTypes = array(
+    static public $civilityTypes = array(
         '1' => 'M',
         '2' => 'Mlle',
         '3' => 'Mme',
@@ -28,8 +28,8 @@ class IStoreCustomerTable extends Doctrine_Table
     *
     * @return array()
     */
-    public function getCivityTypes()
+    public function getCivilityTypes()
     {
-        return self::$civityTypes;
+        return self::$civilityTypes;
     }
 }

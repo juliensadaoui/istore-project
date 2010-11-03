@@ -13,9 +13,9 @@
 class IStoreCategory extends BaseIStoreCategory
 {
     /**
-     *  Retourne les sous-catégories associé à la catégorie
+     *  Retourne les sous-catégories associées à la catégorie
      *
-     * @return <type>
+     * @return Doctrine_Collection  collection d'objet doctrine
      */
     public function getChildCategories()
     {
@@ -25,6 +25,12 @@ class IStoreCategory extends BaseIStoreCategory
     }
 
 
+    /**
+     *  Retourne la requête Doctrine permettant de récuperer les sous-catégories
+     *      de la catégorie
+     *
+     * @return Doctrine_Query   requête doctrine
+     */
     public function getChildCategoriesQuery()
     {
         return $q = Doctrine_Query::create()
@@ -32,18 +38,22 @@ class IStoreCategory extends BaseIStoreCategory
           ->where('c.parent_category_id = ?', $this->getId());
     }
 
-    public function getParentCategory ()
-    {
-//        return $q = Doctrine_Query::create()
-//            ->from('IStoreCategory c')
-//            ->where('c.id = ?', $this->getParentCategory());
-    }
-
+    /**
+     *  Retourne tous les articles activés de la catégorie
+     *
+     * @return Doctrine_Collection  collection d'objet doctrine
+     */
     public function getActiveItems()
     {
         return $this->getActiveItemsQuery()->execute();
     }
 
+    /**
+     *  Retourne la requête Doctrine permettant de récupérer les articles
+     *      activés de la catégorie.
+     *
+     * @return Doctrine_Query   requête doctrine.
+     */
     public function getActiveItemsQuery()
     {
       $q = Doctrine_Query::create()
@@ -53,7 +63,13 @@ class IStoreCategory extends BaseIStoreCategory
       return Doctrine_Core::getTable('IStoreItem')->addActiveItemsQuery($q);
     }
 
-    
+
+    /**
+     *  Retourne la requête Doctrine permettant de retourner le nombre d'articles
+     *      activés dans la catégorie.
+     *
+     * @return Doctrine_Query   requête doctrine.
+     */
     public function countActiveItem()
     {
       $q = Doctrine_Query::create()

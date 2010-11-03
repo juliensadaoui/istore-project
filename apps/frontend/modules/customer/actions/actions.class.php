@@ -10,37 +10,42 @@
  */
 class customerActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+    /**
+    * Executes index action
+    *
+    * @param sfRequest $request A request object
+    */
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->forward('default', 'module');
+    }
 
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    public function executeShow(sfWebRequest $request)
+    {
+        $this->user = $this->getUser()->getGuardUser();
+    }
 
-    $this->form = new sfGuardUserForm();
+    public function executeCreate(sfWebRequest $request)
+    {
+        $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->processForm($request, $this->form);
+        $this->form = new sfGuardUserForm();
 
-    $this->setTemplate('register');
-  }
+        $this->processForm($request, $this->form);
 
-  /**
-   *  Execute l'action 'register' du module 'customer'. Affiche le formulaire
-   *        d'inscription pour un client.
-   *
-   * @param sfWebRequest $request
-   */
-  public function executeRegister (sfWebRequest $request)
-  {
-    $this->form = new sfGuardUserForm();
-  }
+        $this->setTemplate('register');
+    }
+
+    /**
+    *  Execute l'action 'register' du module 'customer'. Affiche le formulaire
+    *        d'inscription pour un client.
+    *
+    * @param sfWebRequest $request
+    */
+    public function executeRegister (sfWebRequest $request)
+    {
+        $this->form = new sfGuardUserForm();
+    }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
@@ -49,7 +54,7 @@ class customerActions extends sfActions
     {
       $i_store_item = $form->save();
 
-      $this->redirect('item/edit?id='.$i_store_item->getId());
+      $this->redirect('@account_show');
     }
   }
 }

@@ -11,7 +11,6 @@
  * @property integer $civility
  * @property date $date_of_birth
  * @property sfGuardUser $User
- * @property IStoreAddress $Address
  * 
  * @method integer        getId()            Returns the current record's "id" value
  * @method integer        getUserId()        Returns the current record's "user_id" value
@@ -19,14 +18,12 @@
  * @method integer        getCivility()      Returns the current record's "civility" value
  * @method date           getDateOfBirth()   Returns the current record's "date_of_birth" value
  * @method sfGuardUser    getUser()          Returns the current record's "User" value
- * @method IStoreAddress  getAddress()       Returns the current record's "Address" value
  * @method IStoreCustomer setId()            Sets the current record's "id" value
  * @method IStoreCustomer setUserId()        Sets the current record's "user_id" value
  * @method IStoreCustomer setTelephone()     Sets the current record's "telephone" value
  * @method IStoreCustomer setCivility()      Sets the current record's "civility" value
  * @method IStoreCustomer setDateOfBirth()   Sets the current record's "date_of_birth" value
  * @method IStoreCustomer setUser()          Sets the current record's "User" value
- * @method IStoreCustomer setAddress()       Sets the current record's "Address" value
  * 
  * @package    i-store
  * @subpackage model
@@ -67,9 +64,5 @@ abstract class BaseIStoreCustomer extends sfDoctrineRecord
         $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id'));
-
-        $this->hasOne('IStoreAddress as Address', array(
-             'local' => 'id',
-             'foreign' => 'customer_id'));
     }
 }

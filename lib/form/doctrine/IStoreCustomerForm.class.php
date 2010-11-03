@@ -34,7 +34,7 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
                   ));
 
         $this->widgetSchema['civility'] = new sfWidgetFormChoice(array(
-            'choices'  => Doctrine_Core::getTable('IStoreCustomer')->getCivityTypes(),
+            'choices'  => Doctrine_Core::getTable('IStoreCustomer')->getCivilityTypes(),
             'expanded' => false
         ));
         $this->validatorSchema['civility']->setMessage('required', 'champ non renseigné');
@@ -58,8 +58,5 @@ class IStoreCustomerForm extends BaseIStoreCustomerForm
                     'telephone' => 'Telephone* : ',
                     'date_of_birth' => 'Date de naissance* : '
                 ));
-
-      $addressForm = new IStoreAddressForm($this->object->Address);
-      $this->embedMergeForm('Adresse', $addressForm);
     }
 }

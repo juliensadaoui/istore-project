@@ -77,21 +77,22 @@ IStoreCustomer:
 IStoreAddress:
   actAs: { Timestampable: ~ }
   columns:
-    customer_id: { type: integer, notnull: true }
+    user_id: { type: integer, notnull: true }
     street: { type: string(255), notnull: true }
     state:  { type: string(255), notnull: true }
     city:  { type: string(255), notnull: true }
     zipcode:  { type: integer, notnull: true }
     country:  { type: string(255), notnull: true }
   relations:
-    Customer:
-      class: IStoreCustomer
-      local: customer_id
+    User:
+      class: sfGuardUser
+      local: user_id
       foreign: id
       type: one
       foreignType: one
       foreignAlias: Address
 
+      
 IStoreCreditCard:
   actAs: { Timestampable: ~ }
   columns:
