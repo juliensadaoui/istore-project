@@ -24,10 +24,10 @@ class itemActions extends sfActions
     $this->forward404Unless($this->item);
   }
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new IStoreItemForm();
-  }
+//  public function executeNew(sfWebRequest $request)
+//  {
+//    $this->form = new IStoreItemForm();
+//  }
 //
 //  public function executeCreate(sfWebRequest $request)
 //  {
@@ -39,7 +39,7 @@ class itemActions extends sfActions
 //
 //    $this->setTemplate('new');
 //  }
-
+//
 //  public function executeEdit(sfWebRequest $request)
 //  {
 //    $this->forward404Unless($i_store_item = Doctrine_Core::getTable('IStoreItem')->find(array($request->getParameter('id'))), sprintf('Object i_store_item does not exist (%s).', $request->getParameter('id')));

@@ -17,7 +17,7 @@
                 <div id="header">
                     <div class="top_right">
                         <ul id="connexion">
-                            <li><a href="">S'inscrire</a></li>
+                            <li><a href="<?php echo url_for('@register') ?>">S'inscrire</a></li>
                             <li>|</li>
                             <li><a href="">Mon compte</a></li>
                             <li>|</li>

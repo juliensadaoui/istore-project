@@ -312,7 +312,6 @@ abstract class sfValidatorBase
       $clean = trim($clean);
     }
 
-    // empty value?
     if ($this->isEmpty($clean))
     {
       // required?

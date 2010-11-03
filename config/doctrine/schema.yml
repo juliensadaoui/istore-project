@@ -44,17 +44,34 @@ IStoreComment:
     IStoreItem: { local: item_id, foreign: id, foreignAlias: IStoreComments }
 
 
+#IStoreCustomer:
+#  actAs: { Timestampable: ~ }
+#  columns:
+#    login: { type: string(255), notnull: true, unique: true }
+#    password: { type: string(255), notnull: true }
+#    email: { type: string(255), notnull: true, unique: true }
+#    firstname: { type: string(255), notnull: true }
+#    lastname: { type: string(255), notnull: true }
+#    telephone: { type: string(255), notnull: true }
+#    sexe: { type: string(255), notnull: true }
+#    date_of_birth: { type: date, notnull: true }
+
+
 IStoreCustomer:
-  actAs: { Timestampable: ~ }
   columns:
-    login: { type: string(255), notnull: true, unique: true }
-    password: { type: string(255), notnull: true }
-    email: { type: string(255), notnull: true, unique: true }
-    firstname: { type: string(255), notnull: true }
-    lastname: { type: string(255), notnull: true }
+    id: { type: integer, primary: true, autoincrement: true }
+    user_id: { type: integer }
     telephone: { type: string(255), notnull: true }
-    sexe: { type: string(255), notnull: true }
+    civility: { type: integer, notnull: true }
     date_of_birth: { type: date, notnull: true }
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Profile
 
 
 IStoreAddress:

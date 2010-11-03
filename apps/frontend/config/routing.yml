@@ -92,6 +92,13 @@ cart_clear:
     sf_method: [post]
 
 
+# Inscription du client
+register:
+  url:  /register
+  param: { module: customer, action: register }
+
+default:
+  url:   /:module/:action/*
 #sf_guard_signin:
 #  url:   /login
 #  param: { module: sfGuardAuth, action: signin }

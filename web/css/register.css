@@ -1,0 +1,89 @@
+/* 
+    Document   : register
+    Created on : 3 nov. 2010, 00:17:10
+    Author     : julien
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#container_create_account
+{
+    float: left;
+    width: 500px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+#container_create_account .title
+{
+    font-size: 14px;
+    font-weight: bold;
+    background-color:#a29d9d;
+    padding: 5px 0 5px 20px;
+}
+
+#container_content {
+    border: 1px solid #a29d9d;
+    border-top: 0 none;
+    -moz-border-radius: 0 0 5px 5px ;
+    -webkit-border-radius: 0 0 5px 5px ;
+    margin-bottom: 30px;
+}
+
+#container_content ul
+{
+    list-style: none;
+    text-decoration: none;
+}
+
+#container_content li
+{
+    padding-bottom: 20px;
+}
+
+#container_content li span
+{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#container_content input
+{
+    float: right;
+    margin-right: 50px;
+    width: 150px;
+}
+
+li.error
+{
+    color:#8a1f11;
+    border-color:#FBC2C4;
+    font-size: 12px;
+    padding-bottom: 0px;
+}
+
+li.error span
+{
+    float: right;
+    margin-right: 50px;
+    font-weight: normal;
+}
+
+ul.radio_list
+{
+    display: block;
+}
+
+
+.radio_list li
+{
+    height: 15px;
+    width: 50px;
+    margin-bottom: 0px;
+}
