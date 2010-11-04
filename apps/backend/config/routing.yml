@@ -1,9 +1,9 @@
-i_store_order_line:
+sf_guard_user:
   class: sfDoctrineRouteCollection
   options:
-    model:                IStoreOrderLine
-    module:               orderline
-    prefix_path:          /orderline
+    model:                sfGuardUser
+    module:               account
+    prefix_path:          /account
     column:               id
     with_wildcard_routes: true
 
@@ -13,33 +13,6 @@ i_store_order:
     model:                IStoreOrder
     module:               order
     prefix_path:          /order
-    column:               id
-    with_wildcard_routes: true
-
-i_store_customer:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                IStoreCustomer
-    module:               customer
-    prefix_path:          /customer
-    column:               id
-    with_wildcard_routes: true
-
-i_store_credit_card:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                IStoreCreditCard
-    module:               creditcard
-    prefix_path:          /creditcard
-    column:               id
-    with_wildcard_routes: true
-
-i_store_comment:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                IStoreComment
-    module:               comment
-    prefix_path:          /comment
     column:               id
     with_wildcard_routes: true
 
@@ -58,15 +31,6 @@ i_store_brand:
     model:                IStoreBrand
     module:               brand
     prefix_path:          /brand
-    column:               id
-    with_wildcard_routes: true
-
-i_store_address:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                IStoreAddress
-    module:               addre
-    prefix_path:          /addre
     column:               id
     with_wildcard_routes: true
 
@@ -89,9 +53,9 @@ homepage:
 
 # generic rules
 # please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+#
+#default:
+#  url:   /:module/:action/*

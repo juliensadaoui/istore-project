@@ -16,5 +16,6 @@ class IStoreItemForm extends BaseIStoreItemForm
 {
   public function configure()
   {
+      unset($this['created_at'], $this['updated_at']);
   }
 }

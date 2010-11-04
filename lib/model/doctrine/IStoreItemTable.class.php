@@ -8,6 +8,75 @@
 class IStoreItemTable extends Doctrine_Table
 {
     /**
+     *  Retourne le fichier index du moteur Zend Lucene.
+     *      Si le fichier n'existe pas, il  crée un nouveau fichier
+     *
+     * @return file   fichier index de Zend Lucene
+     */
+    static public function getLuceneIndex()
+    {
+        ProjectConfiguration::registerZend();
+
+        if (file_exists($index = self::getLuceneIndexFile()))
+        {
+            return Zend_Search_Lucene::open($index);
+        }
+        else
+        {
+            return Zend_Search_Lucene::create($index);
+        }
+    }
+
+    /**
+     *  Retourne le nom du fichier index du moteur de recherche Zend Lucene
+     *      stocké dans le répertoire data/ en fonction de l'environnement.
+     *
+     * @return string     fichier index du moteur de recherche Zend Lucene
+     */
+    static public function getLuceneIndexFile()
+    {
+      return sfConfig::get('sf_data_dir').'/item.'.sfConfig::get('sf_environment').'.index';
+    }
+
+    /**
+     *  Méthode permettant d'executer la requête de recherche dans le
+     *      fichier index de Zend Lucene.
+     *
+     * @param <type> $query     requête de la recherche du client
+     * @return <type>
+     */
+    public function getForLuceneQuery($query)
+    {
+        // on récupere les résultat de la requête de recherche
+        //      dans le fichier index de Zend Lucene
+        $hits = self::getLuceneIndex()->find($query);
+
+        // on récupere toutes les clés primaires des articles
+        //      inclus dans le résultat
+        $pks = array();
+        foreach ($hits as $hit)
+        {
+            $pks[] = $hit->pk;
+        }
+
+        // si il y a aucun articles correspondant à la recherche
+        //  on renvoie un tableau vide
+        if (empty($pks))
+        {
+            return array();
+        }
+
+        // autrement on récupére les articles dans la base de données
+        $q = $this->createQuery('i')
+        ->whereIn('i.id', $pks)
+        ->limit(20);
+
+        $q = $this->addActiveItemsQuery($q);
+
+        return $q->execute();
+    }
+
+    /**
      * Returns an instance of this class.
      *
      * @return object IStoreItemTable

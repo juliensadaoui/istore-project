@@ -14,8 +14,16 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title:        Gestion des articles
+        layout:       stacked
+        display:      [name, short_description, unit_cost, is_activated]
+        max_per_page: 10
+        object_actions:
+          _edit:      ~
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Modifier l'article "%%name%%"
+      new:
+        title: Ajouter un nouveau article

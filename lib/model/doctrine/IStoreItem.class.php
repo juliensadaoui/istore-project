@@ -78,4 +78,95 @@ class IStoreItem extends BaseIStoreItem
         
         return $details;
     }
+
+    /**
+     *  Personnalise la serialisation d'un article en base
+     *      de données
+     *
+     * @param Doctrine_Connection $conn  Connexion à la base de données par Doctrine
+     */
+    public function save(Doctrine_Connection $conn = null)
+    {
+        /**
+         *  Effectue une transaction afin de sauvegarder de serialiser
+         *      l'article dans la base de données et dans le fichier
+         *      index de Zend Lucene de façon cohérent.
+         *  Si une erreur se produit, la serialisation de l'article
+         *      est annulé
+         */
+        $conn = $conn ? $conn : Doctrine_Core::getTable('IStoreItem')->getConnection();
+        $conn->beginTransaction();
+        try
+        {
+            $ret = parent::save($conn);
+
+            // met à jour le fichier index du moteur de recherche
+            //   Zend Lucene lors de la serialisation d'un article
+            //   en base de données
+            $this->updateLuceneIndex();
+
+            $conn->commit();
+
+            return $ret;
+        }
+        catch (Exception $e)
+        {
+            $conn->rollBack();
+            throw $e;
+        }
+    }
+
+    /**
+     *  Personnalise la suppression d'un article dans la base de données
+     *
+     * @param Doctrine_Connection $conn  Connexion à la base de données par Doctrine
+     */
+    public function delete(Doctrine_Connection $conn = null)
+    {
+      $index = IStoreItem::getLuceneIndex();
+
+      // supprime l'article du fichier index Zend Lucene
+      foreach ($index->find('pk:'.$this->getId()) as $hit)
+      {
+        $index->delete($hit->id);
+      }
+
+      return parent::delete($conn);
+    }
+
+    /**
+     *  Met à jour l'index des articles dans le moteur de recherche
+     *      Zend_Lucene
+     */
+    public function updateLuceneIndex()
+    {
+        $index = IStoreItemTable::getLuceneIndex();
+
+        // supprime l'entrée existante dans l'index
+        foreach ($index->find('pk:'.$this->getId()) as $hit)
+        {
+            $index->delete($hit->id);
+        }
+
+        // pas d'entrée dans l'index si l'article n'est plus activé
+        if (!$this->getIsActivated())
+        {
+            return;
+        }
+
+        $doc = new Zend_Search_Lucene_Document();
+
+        // stocke la clé primaire de l'article pour l'identifier dans les résultats de la recherche
+        $doc->addField(Zend_Search_Lucene_Field::Keyword('pk', $this->getId()));
+
+        // index les champs de l'article
+        $doc->addField(Zend_Search_Lucene_Field::UnStored('name', $this->getName(), 'utf-8'));
+        $doc->addField(Zend_Search_Lucene_Field::UnStored('short_description', $this->getShortDescription(), 'utf-8'));
+        $doc->addField(Zend_Search_Lucene_Field::UnStored('brand', $this->getIStoreBrand(), 'utf-8'));
+        $doc->addField(Zend_Search_Lucene_Field::UnStored('description', $this->getDescription(), 'utf-8'));
+
+        // ajoute l'article à l'index
+        $index->addDocument($doc);
+        $index->commit();
+    }
 }

@@ -34,9 +34,9 @@
                     <div class="clear">
                         <?php include_component('cart', 'encart'); ?>
 
-                        <form id="search" action="/Accueil/Recherche/">
+                        <form id="search"  method="get" action="<?php echo url_for('item_search') ?>">
                             <fieldset>
-                                <input id="champRecherche" name="q" type="text" accesskey="4" value="" class="box" />
+                                <input id="search_keywords" name="query" value="<?php echo $sf_request->getParameter('query') ?>" id="search_keywords" class="box" />
                                 <input type="submit" value="Recherche" class="button_search" />
                             </fieldset>
                         </form>

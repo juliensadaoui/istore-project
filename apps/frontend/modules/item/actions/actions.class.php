@@ -28,4 +28,20 @@ class itemActions extends sfActions
         $this->item = $this->getRoute()->getObject();
         $this->forward404Unless($this->item);
     }
+
+    /**
+     *  Action 'search' du module 'item'. Cette action permet d'implémenter
+     *      la fonction recherche. Affiche le résultat (liste des articles)
+     *      d'un requête de recherche de l'utilisateur
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeSearch(sfWebRequest $request)
+    {
+        // recupére la requête dans la variable query
+        $this->forwardUnless($query = $request->getParameter('query'), 'item', 'index');
+
+        $this->items = Doctrine_Core::getTable('IStoreItem') ->getForLuceneQuery($query);
+    }
+
 }

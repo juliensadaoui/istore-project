@@ -134,9 +134,9 @@ input.button_search {
 	-moz-border-radius:5px 5px 5px 5px;
 	-khtml-border-radius:5px 5px 5px 5px;
 	-webkit-border-radius:5px 5px 5px 5px;
-	;osverflow:hidden;
+/*	;osverflow:hidden;
 
-	text-shadow:0 0 2px #88857A;
+	text-shadow:0 0 2px #88857A;*/
 
 	background:url(/images/menu_title_bg.gif) no-repeat scroll center center transparent;
 	color:#159DCC;
@@ -171,12 +171,6 @@ input {
 form input[type="text"], form input[type="password"], form textarea {
 -moz-border-radius:3px 3px 3px 3px;
 border:1px solid #B9B9B9;
-}
-input {
-	font-size:0.9em;
-	padding-bottom:2px;
-	padding-left:3px;
-	padding-top:4px;
 }
 
 /*---------------- shopping cart ----------------------*/

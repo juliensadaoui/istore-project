@@ -143,4 +143,29 @@ class orderActions extends sfActions
         }
     }
 
+    /**
+     *
+     * @param <type> $order
+     */
+//    private function sendOrder ($order)
+//    {
+//        $affiliate = $this->getRoute()->getObject();
+//        $affiliate->activate();
+//        // send an email to the affiliate
+//        ProjectConfiguration::registerZend();
+//        $mail = new Zend_Mail();
+//        $mail->setBodyText(<<<EOF
+//        Your Jobeet affiliate account has been activated.
+//        Your token is {$affiliate->getToken()}.
+//        The Jobeet Bot.
+//
+//        EOF
+//        );
+//        $mail->setFrom('jobeet@example.com', 'Jobeet Bot');
+//        $mail->addTo($affiliate->getEmail());
+//        $mail->setSubject('Jobeet affiliate token');
+//        $mail->send();
+//        $this->redirect('@jobeet_affiliate');
+//    }
+
 }

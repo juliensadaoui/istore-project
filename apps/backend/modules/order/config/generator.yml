@@ -14,8 +14,18 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title:         Gestion des commandes
+        layout:        stacked
+        display:       [id, user, date,is_validated]
+        max_per_page:  10
+        sort:          [is_validated, desc]
+        batch_actions:
+          _delete:    ~
+          valid:      ~
+        object_actions:
+          valid:     ~
+          _delete:    ~
+
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~

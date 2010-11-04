@@ -42,6 +42,11 @@ item:
   requirements:
     id: \d+
 
+# Module de recherche des articles
+item_search:
+  url:   /search
+  param: { module: item, action: search }
+
 
 # Affiche la panier virtuel de l'utilisateur
 cart_show:
@@ -116,6 +121,7 @@ order_create:
   requirements:
     sf_method: [post]
 
+# Affiche la page récapitulatif d'un client
 order:
   url:    /order/:id
   class:  sfDoctrineRoute
