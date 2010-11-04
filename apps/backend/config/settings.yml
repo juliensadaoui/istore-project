@@ -1,6 +1,8 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/04-Settings
 
+
+
 prod:
   .settings:
     no_script_name:         false
@@ -33,3 +35,6 @@ all:
 
     # Enable the database manager
     use_database:           true
+  .actions:
+    login_module: sfGuardAuth
+    login_action: signin
