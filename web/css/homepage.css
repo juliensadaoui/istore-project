@@ -170,3 +170,45 @@ line-height:18px;
     color: #a29d9d;
     font-size: 10px;
 }
+
+
+
+
+
+
+/*8dacbe*/
+
+.error404_container
+{
+    float:left;
+    margin-top: 20px;
+    margin-left: 250px;
+    margin-bottom: 100px;
+    padding:0;
+    text-align:left;
+    width:500px;
+    height: 200px;
+    border: solid 1px #8dacbe;
+}
+
+.error404_container .title {
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 480px;
+}
+
+.error404_container .title h1
+{
+    border: none;
+    font-size: 46px;
+}
+
+.error404_container_message
+{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+

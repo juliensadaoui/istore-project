@@ -5,6 +5,9 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
+  .actions:
+    error_404_module:       homepage
+    error_404_action:       error404
 
 dev:
   .settings:

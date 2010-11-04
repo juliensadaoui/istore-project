@@ -21,4 +21,13 @@ class homepageActions extends sfActions
     $this->updatedItems = Doctrine::getTable('IStoreItem')->getUpdatedItems(6);
     $this->newsItems = Doctrine::getTable('IStoreItem')->getNewsItems(6);
   }
+
+    /**
+     *
+     * @param sfWebRequest $request 
+     */
+    public function executeError404(sfWebRequest $request)
+    {
+
+    }
 }
