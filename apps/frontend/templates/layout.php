@@ -46,7 +46,7 @@
 
                 <div id="logo">
                     <a href="<?php echo url_for('@homepage') ?>">
-                        <img src="/images/logo.png" alt="" title="" border="0" width="182" height="85" />
+                        <img src="/images/logo.png" alt="" title="" border="0" width="103" height="120" />
                     </a>
 
                     <a href="index.html"></a>
@@ -64,7 +64,7 @@
 
             <div class="footer">
                 <div class="left_footer">
-                    <img src="/images/logo.png" alt="" title="" width="89" height="42"/>
+                    <img src="/images/logo.png" alt="" title="" width="43" height="50"/>
                 </div>
 
                 <div class="center_footer">
