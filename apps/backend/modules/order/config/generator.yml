@@ -13,19 +13,20 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        user: { label: Client }
+        is_validated: { label: Validée }
       list:
         title:         Gestion des commandes
-        layout:        stacked
+        layout:        tabular
         display:       [id, user, date,is_validated]
         max_per_page:  10
         sort:          [is_validated, desc]
         batch_actions:
-          _delete:    ~
-          valid:      ~
+          valid:
+            label: Valider
         object_actions:
-          valid:     ~
-          _delete:    ~
-
+          valid:
+            label: Valider
       filter:  ~
       form:    ~

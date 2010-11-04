@@ -13,42 +13,76 @@ require_once dirname(__FILE__).'/../lib/accountGeneratorHelper.class.php';
  */
 class accountActions extends autoAccountActions
 {
-//    /**
-//     *  Valide une liste de commande
-//     *
-//     * @param sfWebRequest $request
-//     */
-//    public function executeBatchValid(sfWebRequest $request)
-//    {
-//        $ids = $request->getParameter('ids');
-//
-//        $q = Doctrine_Query::create()
-//            ->from('IStoreOrder o')
-//            ->whereIn('o.id', $ids);
-//
-//        foreach ($q->execute() as $order)
-//        {
-//            $order->setIsValidated(true);
-//        }
-//
-//        $this->getUser()->setFlash('notice', 'Les commandes selectionnées ont été validées avec succès.');
-//
-//        $this->redirect('i_store_order');
-//    }
-//
-//    /**
-//     *  action 'listValid' du module 'account' du back office.
-//     *      Cette action permet d'activer un compte client
-//     *
-//     * @param sfWebRequest $request
-//     */
-//    public function executeListValid(sfWebRequest $request)
-//    {
-//        $job = $this->getRoute()->getObject();
-//        $job->setIsValidated(true);
-//
-//        $this->getUser()->setFlash('notice', 'La commande selectionnée a été validée avec succès.');
-//
-//        $this->redirect('i_store_order');
-//    }
+    /**
+     *  Active un compte client
+     */
+    public function executeListActivate()
+    {
+        $user = $this->getRoute()->getObject();
+        $user->setIsActive(true);
+        $user->save();
+        $this->getUser()->setFlash('notice', 'Le compte client selectionné a été activé avec succès.');
+        $this->redirect('sf_guard_user');
+    }
+
+    /**
+     *  Desactive un compte client
+     */
+    public function executeListDeactivate()
+    {
+        $user = $this->getRoute()->getObject();
+        $user->setIsActive(false);
+        $user->save();
+        $this->getUser()->setFlash('notice', 'Le compte client selectionné a été désactivé avec succès.');
+        $this->redirect('sf_guard_user');
+    }
+
+    /**
+     *  Active une liste compte client
+     *
+     * @param sfWebRequest $request     web requête encapsulé par symfony
+     */
+    public function executeBatchActivate(sfWebRequest $request)
+    {
+        $q = Doctrine_Query::create()
+            ->from('sfGuardUser gu')
+            ->whereIn('gu.id', $request->getParameter('ids'));
+
+        $guardUsers = $q->execute();
+
+        foreach ($guardUsers as $user)
+        {
+            $user->setIsActive(true);
+            $user->save();
+        }
+
+        $this->getUser()->setFlash('notice', 'Les comptes client selectionnés a été activés avec succès.');
+        $this->redirect('sf_guard_user');
+    }
+
+    /**
+     *  Desactive une liste de compte client
+     *
+     * @param sfWebRequest $request     web requête encapsulé par symfony
+     */
+    public function executeBatchDeactivate(sfWebRequest $request)
+    {
+        $q = Doctrine_Query::create()
+            ->from('sfGuardUser gu')
+            ->whereIn('gu.id', $request->getParameter('ids'));
+
+        $guardUsers = $q->execute();
+
+        foreach ($guardUsers as $user)
+        {
+            $user->setIsActive(false);
+            $user->save();
+        }
+
+        $this->getUser()->setFlash('notice', 'Les comptes client selectionnés a été désactivés avec succès.');
+        $this->redirect('sf_guard_user');
+    }
+
+
+
 }

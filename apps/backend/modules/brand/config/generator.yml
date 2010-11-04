@@ -12,10 +12,29 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
-      list:    ~
+      actions:
+        _new:
+          label:  Nouveau
+      fields:
+        name:     { label: Nom }
+        url:      { label: Site web }
+      list:
+        title:    Gestion des marques
+        display:  [ id, name, description, url]
+        object_actions:
+          _edit:
+            label: modifier
+        batch_actions: { }
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title:    Modifier la marque "%%name%%"
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+      new:
+        title:     Ajouter une marque
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+          _save_and_add:  { label: enregistrer et ajouter }

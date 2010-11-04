@@ -12,18 +12,37 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _new:
+          label:      Nouveau
+      fields:
+        name:         { label: Nom }
+        short_description: { label: Description courte }
+        details:      { label: Détails }
+        unit_cost:    { label: Prix unitaire }
+        weight:       { label: Poids }
+        category_id:  { label: Catégorie }
+        brand_id:     { label: Marque }
+        is_activated: { label: Activé }
       list:
         title:        Gestion des articles
-        layout:       stacked
+        layout:   tabular
         display:      [name, short_description, unit_cost, is_activated]
         max_per_page: 10
         object_actions:
-          _edit:      ~
+          _edit:
+            label:    modifier
+        batch_actions: {}
       filter:  ~
       form:    ~
       edit:
         title: Modifier l'article "%%name%%"
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
       new:
         title: Ajouter un nouveau article
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+          _save_and_add:  { label: enregistrer et ajouter }

@@ -30,7 +30,7 @@
             <?php echo link_to('Article', 'i_store_item') ?>
           </li>
           <li>
-            <?php echo link_to('Categorie', 'i_store_category') ?>
+            <?php echo link_to('Catégorie', 'i_store_category') ?>
           </li>
           <li>
             <?php echo link_to('Marque', 'i_store_brand') ?>
@@ -49,9 +49,7 @@
       </div>
 
       <div id="footer">
-        <img src="/images/jobeet-mini.png" />
-        powered by <a href="http://www.symfony-project.org/">
-        <img src="/images/symfony.gif" alt="symfony framework" /></a>
+        <img src="/images/logo.png" height="200px" width="200px" />
       </div>
     </div>
   </body>

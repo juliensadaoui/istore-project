@@ -12,14 +12,28 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _new:
+          label: Nouveau
+      fields:
+        name: { label: Nom }
+        parent_category_id: { label: Catégorie supérieur }
       list:
         title: Gestion des catégories
-        display: [ id, name]
+        display: [ id, name, parent_category_id ]
+        object_actions:
+          _edit: { label: modifier }
+        batch_actions: {}
       filter:  ~
       form:    ~
       edit:
         title: Modifier la catégorie "%%name%%"
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
       new:
         title: Ajouter une nouvelle catégorie
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+          _save_and_add:  { label: enregistrer et ajouter }

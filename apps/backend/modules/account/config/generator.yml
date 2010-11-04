@@ -12,15 +12,48 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _new:
+          label: Nouveau
+      fields:
+        username:       { label: login }
+        email_address:  { label: Adresse e-mail }
+        last_name:      { label: Nom }
+        first_name:     { label: Prénom }
+        last_login:     { label: Dernière connexion }
+        is_active:      { label: Activé }
       list:
         title:    Gestion des compte client
-        layout:   stacked
+        layout:   tabular
         display:  [ id, username, email_address, last_name, first_name, last_login, is_active]
+        object_actions:
+          activate:
+            label: activer
+          deactivate:
+            label: désactiver
+          _delete:
+            label: Supprimer
+          _edit:
+            label: Modifier
+        batch_actions:
+          activate:
+            label: activer
+          deactivate:
+            label: désactiver
+          delete:
+            label: Supprimer
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Modifier l'article "%%username%%"
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+      new:
+        title: Ajouter un nouveau article
+        actions:
+          _list:   { label: revenir à la liste }
+          _save:   { label: enregistrer }
+          _save_and_add:  { label: enregistrer et ajouter }
 
 

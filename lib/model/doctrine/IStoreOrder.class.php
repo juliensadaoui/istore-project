@@ -38,4 +38,16 @@ class IStoreOrder extends BaseIStoreOrder
 
         return Doctrine_Core::getTable('IStoreOrderLine')->addOrderLinesQuery($q);
     }
+
+    /**
+     *  Valide la commande
+     *
+     * @return IStoreOrder  commande validée
+     */
+    public function validate()
+    {
+        $this->setIsValidated(true);
+        return $this->save();
+    }
+
 }

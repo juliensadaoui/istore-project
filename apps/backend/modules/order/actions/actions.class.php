@@ -28,7 +28,7 @@ class orderActions extends autoOrderActions
 
         foreach ($q->execute() as $order)
         {
-            $order->setIsValidated(true);
+            $order->validate();
         }
 
         $this->getUser()->setFlash('notice', 'Les commandes selectionnées ont été validées avec succès.');
@@ -43,8 +43,7 @@ class orderActions extends autoOrderActions
      */
     public function executeListValid(sfWebRequest $request)
     {
-        $job = $this->getRoute()->getObject();
-        $job->setIsValidated(true);
+        $order = $this->getRoute()->getObject()->validate();
 
         $this->getUser()->setFlash('notice', 'La commande selectionnée a été validée avec succès.');
 
