@@ -6,7 +6,7 @@
     Navigation:
         <a href="<?php echo url_for('@homepage') ?>"> Home ></a>
         <span class="current">
-            <a href="<?php echo url_for('@register') ?>"> Inscription</a>
+            <a href="<?php echo url_for('@account_new') ?>"> Inscription</a>
         </span>
 </div>
 

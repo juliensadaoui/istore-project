@@ -16,7 +16,8 @@ abstract class BaseIStoreAddressForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
-      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
+      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'order_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Order'), 'add_empty' => true)),
       'street'     => new sfWidgetFormInputText(),
       'state'      => new sfWidgetFormInputText(),
       'city'       => new sfWidgetFormInputText(),
@@ -28,7 +29,8 @@ abstract class BaseIStoreAddressForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
+      'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'required' => false)),
+      'order_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Order'), 'required' => false)),
       'street'     => new sfValidatorString(array('max_length' => 255)),
       'state'      => new sfValidatorString(array('max_length' => 255)),
       'city'       => new sfValidatorString(array('max_length' => 255)),

@@ -16,10 +16,10 @@ abstract class BaseIStoreOrderForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
+      'user_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
       'credit_card_id' => new sfWidgetFormInputText(),
-      'address_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreAddress'), 'add_empty' => false)),
+      'address_id'     => new sfWidgetFormInputText(),
       'date'           => new sfWidgetFormDate(),
-      'payment'        => new sfWidgetFormInputText(),
       'is_validated'   => new sfWidgetFormInputCheckbox(),
       'created_at'     => new sfWidgetFormDateTime(),
       'updated_at'     => new sfWidgetFormDateTime(),
@@ -27,10 +27,10 @@ abstract class BaseIStoreOrderForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'user_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
       'credit_card_id' => new sfValidatorInteger(array('required' => false)),
-      'address_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('IStoreAddress'))),
+      'address_id'     => new sfValidatorInteger(),
       'date'           => new sfValidatorDate(),
-      'payment'        => new sfValidatorInteger(),
       'is_validated'   => new sfValidatorBoolean(),
       'created_at'     => new sfValidatorDateTime(),
       'updated_at'     => new sfValidatorDateTime(),

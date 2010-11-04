@@ -12,4 +12,30 @@
  */
 class IStoreOrder extends BaseIStoreOrder
 {
+    /**
+     *  Retourne toutes les lignes de commande de la commande
+     *      dans une collection d'objet Doctrine
+     *
+     * @return Doctrine_Collection  collection d'objet doctrine
+     */
+    public function getOrderLines()
+    {
+        return $this->getOrderLinesQuery()->execute();
+    }
+    
+    /**
+     *  Retourne la requête Doctrine permettant de récupérer les lignes
+     *     de la commande. Une ligne est composé de l'article et
+     *      de la quantité commandée
+     *
+     * @return Doctrine_Query   requête doctrine.
+     */
+    public function getOrderLinesQuery()
+    {
+        $q = Doctrine_Query::create()
+            ->from('IStoreOrderLine ol')
+            ->where('ol.order_id = ?', $this->getId());
+
+        return Doctrine_Core::getTable('IStoreOrderLine')->addOrderLinesQuery($q);
+    }
 }

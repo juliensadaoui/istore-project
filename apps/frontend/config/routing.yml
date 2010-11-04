@@ -83,7 +83,13 @@ cart_clear:
   requirements:
     sf_method: [post]
 
-
+# Commander le panier
+cart_order:
+  url:  /cart/order
+  param:  { module: cart, action: order }
+  class: sfRequestRoute
+  requirements:
+    sf_method: [post]
 
 # Défini automatiquement toutes les actions
 #    pour le module account
@@ -93,11 +99,33 @@ account:
 
 # Acceder à la page du compte client
 account_show:
-  url: /account/show
+  url:  /account/show
   param: { module: account, action: show }
 
+# Page de confirmation d'un commande
+order_confirm:
+  url:  /order/confirm
+  param: { module: order, action: confirm }
 
+# Validation du formulaire de creation de la commande
+#   et creation de la commande en base
+order_create:
+  url:  /order/create
+  param: { module: order, action: create }
+  class: sfRequestRoute
+  requirements:
+    sf_method: [post]
 
+order:
+  url:    /order/:id
+  class:  sfDoctrineRoute
+  param:  { module: order,action: show }
+  options:
+    model: IStoreOrder
+    type: object
+  requirements:
+    id: \d+
+    
 #default:
 #  url:   /:module/:action/*
 

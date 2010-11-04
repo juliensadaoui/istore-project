@@ -23,7 +23,8 @@
     font-size: 14px;
 }
 
-#container_account
+#container_account,
+#container_credit_card
 {
     float: left;
     width: 430px;
@@ -36,13 +37,14 @@
 {
     float: right;
     width: 400px;
-    margin-right: 10px;
+    margin-right: 30px;
     margin-top: 10px;
     margin-left: 30px;
 }
 
 #container_account .title,
-#container_address .title
+#container_address .title,
+#container_credit_card .title
 {
     font-size: 14px;
     font-weight: bold;
@@ -98,6 +100,13 @@
 {
     margin-left: 30px;
 }
+
+#container_credit_card select
+{
+    float:right;
+    margin-right:30px;
+}
+
 
 .container_content input:hover,
 #container_address_content input:hover
@@ -201,4 +210,9 @@ li.error span
     font-size: 14px;
     text-align: right;
     padding-bottom: 14px;
+}
+
+.center_content p
+{
+    margin-bottom:20px;
 }

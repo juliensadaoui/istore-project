@@ -45,7 +45,10 @@ class accountActions extends sfActions
     }
 
     /**
-     *
+     *  Action 'create' du module 'account' permettant de récupérer la saisie
+     *      du formulaire d'inscription d'un compte client. Effectue un traitement
+     *      du formulaire pour filtrer les données et créer un nouveau compte
+     *      client si le traitement n'a pas échoué
      *
      * @param sfWebRequest $request
      */
@@ -73,7 +76,10 @@ class accountActions extends sfActions
     }
 
     /**
-     *  
+     *  Action 'update' du module 'account' permettant de récupérer la saisie
+     *      du formulaire de modification du compte. Effectue un traitement
+     *      du formulaire pour filtrer les données et met à jour le compte
+     *      client si le traitement n'a pas échoué
      *
      * @param sfWebRequest $request
      */
@@ -107,7 +113,13 @@ class accountActions extends sfActions
     }
     
 
-
+    /**
+     *  Cette méthode permet de valider la saisie d'un formulaire. Elle utilise
+     *      les classes de validation du framework symfony.
+     *
+     * @param sfWebRequest $request
+     * @param sfForm $form  forumlaire à valider
+     */
     protected function processForm(sfWebRequest $request, sfForm $form)
     {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

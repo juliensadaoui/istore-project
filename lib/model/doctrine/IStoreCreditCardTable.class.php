@@ -16,4 +16,22 @@ class IStoreCreditCardTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('IStoreCreditCard');
     }
+
+
+    static public $types = array(
+        '1' => 'VISA',
+        '2' => 'MasterCard',
+        '3' => 'American Express',
+        '4' => 'Carte Bleue'
+    );
+
+    /**
+    *    Retourne le type de carte bancaire
+    *
+    * @return array()
+    */
+    public function getTypes()
+    {
+        return self::$types;
+    }
 }

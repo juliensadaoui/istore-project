@@ -162,4 +162,23 @@ class cartActions extends sfActions
         $this->forward('cart', 'show');
     }
 
+    /**
+     *  Execute l'action 'order' du module 'cart' permettant de lancer
+     *      la commande du panier
+     *
+     * @param sfWebRequest $request
+     */
+    public function executeOrder (sfWebRequest $request)
+    {
+        $shoppingCart = $this->getUser()->getShoppingCart();
+
+        if (!$shoppingCart->isEmpty())
+        {
+            $this->getUser()->setAttribute('cart', 'order');
+            $this->redirect('order_confirm');
+        }
+
+        // si le panier est vide, on redirige vers le panier
+        $this->forward('cart', 'show');
+    }
 }
