@@ -14,6 +14,7 @@ abstract class BaseIStoreAddressFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'order_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Order'), 'add_empty' => true)),
       'street'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'state'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'city'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -25,6 +26,7 @@ abstract class BaseIStoreAddressFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'user_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('User'), 'column' => 'id')),
+      'order_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Order'), 'column' => 'id')),
       'street'     => new sfValidatorPass(array('required' => false)),
       'state'      => new sfValidatorPass(array('required' => false)),
       'city'       => new sfValidatorPass(array('required' => false)),
@@ -53,6 +55,7 @@ abstract class BaseIStoreAddressFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'         => 'Number',
       'user_id'    => 'ForeignKey',
+      'order_id'   => 'ForeignKey',
       'street'     => 'Text',
       'state'      => 'Text',
       'city'       => 'Text',

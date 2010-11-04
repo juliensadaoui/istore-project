@@ -73,11 +73,47 @@ IStoreCustomer:
       foreignType: one
       foreignAlias: Profile
 
+IStoreCreditCard:
+  actAs: { Timestampable: ~ }
+  columns:
+    number: { type: string(255), notnull: true }
+    type: { type: integer, notnull: true }
+    expiry_date: { type: date, notnull: true }
+
+IStoreOrder:
+  actAs: { Timestampable: ~ }
+  columns:
+    user_id: { type: integer, notnull: true }
+    credit_card_id: { type: integer }
+    address_id: { type: integer, notnull: true }
+    date: { type: date, notnull: true }
+#    payment: { type: integer, notnull: true }
+    is_validated: { type: boolean, notnull: true }
+  relations:
+    IStoreCreditCart: { local: credit_card_id, foreign: id, foreignAlias: creditCard }
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Profile
+
+IStoreOrderLine:
+  actAs: { Timestampable: ~ }
+  columns:
+    order_id: { type: integer, notnull: true }
+    item_id: { type: integer, notnull: true }
+    quantity: { type: integer, notnull: true }
+  relations:
+    IStoreOrder: { local: order_id, foreign: id, foreignAlias: order }
+    IStoreItem: { local: item_id, foreign: id, foreignAlias: item }
 
 IStoreAddress:
   actAs: { Timestampable: ~ }
   columns:
-    user_id: { type: integer, notnull: true }
+    user_id: { type: integer }
+    order_id: { type: integer }
     street: { type: string(255), notnull: true }
     state:  { type: string(255), notnull: true }
     city:  { type: string(255), notnull: true }
@@ -91,33 +127,10 @@ IStoreAddress:
       type: one
       foreignType: one
       foreignAlias: Address
-
-      
-IStoreCreditCard:
-  actAs: { Timestampable: ~ }
-  columns:
-    number: { type: string(255), notnull: true }
-    type: { type: integer, notnull: true }
-    expiry_date: { type: date, notnull: true }
-
-IStoreOrder:
-  actAs: { Timestampable: ~ }
-  columns:
-    credit_card_id: { type: integer }
-    address_id: { type: integer, notnull: true }
-    date: { type: date, notnull: true }
-    payment: { type: integer, notnull: true }
-    is_validated: { type: boolean, notnull: true }
-  relations:
-    IStoreCreditCart: { local: credit_card_id, foreign: id, foreignAlias: creditCard }
-    IStoreAddress: { local: address_id, foreign: id, foreignAlias: address }
-
-IStoreOrderLine:
-  actAs: { Timestampable: ~ }
-  columns:
-    order_id: { type: integer, notnull: true }
-    item_id: { type: integer, notnull: true }
-    quantity: { type: integer, notnull: true }
-  relations:
-    IStoreOrder: { local: order_id, foreign: id, foreignAlias: order }
-    IStoreItem: { local: item_id, foreign: id, foreignAlias: item }
+    Order:
+      class: IStoreOrder
+      local: order_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Address

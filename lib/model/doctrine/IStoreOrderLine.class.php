@@ -12,4 +12,12 @@
  */
 class IStoreOrderLine extends BaseIStoreOrderLine
 {
+    /**
+     *  Retourne le prix total de la ligne.
+     *      Prix Unitaire * Quantity
+     */
+    public function getTotalPrice()
+    {
+        return ($this->getQuantity() * $this->getIStoreItem()->getUnitCost());
+    }
 }

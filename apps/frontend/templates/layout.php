@@ -23,7 +23,7 @@
                                     <a href="<?php echo url_for('@sf_guard_signout') ?>"> (Deconnexion)</a>
                                 </li>
                             <?php else: ?>
-                                <li><a href="<?php echo url_for('@register') ?>">S'inscrire</a></li>
+                                <li><a href="<?php echo url_for('@account_new') ?>">S'inscrire</a></li>
                                 <li>|</li>
                                 <li><a href="<?php echo url_for('@account_show') ?>">Mon compte</a></li>
                             <?php endif; ?>

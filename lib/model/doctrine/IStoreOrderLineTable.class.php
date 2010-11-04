@@ -16,4 +16,25 @@ class IStoreOrderLineTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('IStoreOrderLine');
     }
+
+    /**
+     *  Retourne la requete doctrine permettant de récupérer
+     *      les lgines de commande de toutes les commandes.
+     *      La requete peut être ajusté en fonction du besoin.
+     *
+     * @param Doctrine_Query $q     requête Doctrine à combiner
+     * @return Doctrine_Query       requête Doctrine
+     */
+    public function addOrderLinesQuery(Doctrine_Query $q = null)
+    {
+        if (is_null($q))
+        {
+          $q = Doctrine_Query::create()
+            ->from('IStoreOrderLine i');
+        }
+
+        $alias = $q->getRootAlias();
+
+        return $q;
+    }
 }

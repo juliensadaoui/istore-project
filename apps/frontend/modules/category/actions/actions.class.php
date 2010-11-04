@@ -11,7 +11,9 @@
 class categoryActions extends sfActions
 {
  /**
-  * Executes show action
+  *   Executes l'action 'show' du module 'category' permettant d'afficher
+  *     la liste des articles d'une catégorie. Il y a une pagination des
+  *     articles fournit par l'objet sfDoctrinePager
   *
   * @param sfRequest $request A request object
   */
