@@ -121,7 +121,7 @@ order_create:
   requirements:
     sf_method: [post]
 
-# Affiche la page récapitulatif d'un client
+# Affiche la page récapitulatif d'une commande d'un client
 order:
   url:    /order/:id
   class:  sfDoctrineRoute

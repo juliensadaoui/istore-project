@@ -25,8 +25,9 @@ class orderActions extends sfActions
     {
         $this->order = $this->getRoute()->getObject();
         $this->forward404Unless($this->order);
+        $this->forward404Unless($this->user = $this->getUser()->getGuardUser());
 
-        if ($this->order->getUserId() !== $this->getUser()->getGuardUser()->getId())
+        if ($this->order->getUserId() !== $this->user->getId())
         {
             $this->forward('homepage', 'index');
         }
@@ -100,38 +101,8 @@ class orderActions extends sfActions
                 $user = $this->getUser()->getGuardUser();
                 $address = $user->getAddress();
 
-                // on sauvegarde la carte de credit
-                $creditCard = $form->save();
-
-                // on cree une commande en base de données.
-                $order = new IStoreOrder();
-                $order->setDate(date('Y-m-d'));
-                $order->setCreditCardId($creditCard->getId());
-                $order->setUserId($user->getId());
-                $order->save();
-
-                // on sauvegarde une copie de l'adresse du client
-                //      pour la commande.
-                $orderAddress = new IStoreAddress();
-                $orderAddress->setStreet($address->getStreet());
-                $orderAddress->setCity($address->getCity());
-                $orderAddress->setZipcode($address->getZipcode());
-                $orderAddress->setCountry($address->getCountry());
-                $orderAddress->setOrderId($order->getId());
-                $orderAddress->save();
-
-                $order->setAddressId($orderAddress->getId());
-                $order->save();
-
-                // on sauvegarde chaque ligne de la commande
-                foreach ($shoppingCart->getItems() as $item)
-                {
-                    $orderLine = new IStoreOrderLine();
-                    $orderLine->setItemId($item->getId());
-                    $orderLine->setOrderId($order->getId());
-                    $orderLine->setQuantity($item->getQuantity());
-                    $orderLine->save();
-                }
+                // serialisation de la commande en base de données
+                $order = $this->registerOrder($form, $user, $address, $shoppingCart);
 
                 // on vide le panier après sauvegarde de la commande
                 $shoppingCart->clear();
@@ -144,11 +115,87 @@ class orderActions extends sfActions
     }
 
     /**
+     *  Effectue la serialisation de la commande dans la base de données
+     *      en utilisant une transaction afin de valider la serialisation
+     *      complete de la commande.
+     *
+     * @param <type> $form  formulaire de la carte de credit du client
+     * @param <type> $user  utilisateur de la session associé au client
+     * @param <type> $address   adresse du client
+     * @param <type> $shoppingCart      panier de l'utilisateur
+     */
+    private function registerOrder($form, $user, $address, $shoppingCart)
+    {
+        $conn = Doctrine_Core::getTable('IStoreOrder')->getConnection();
+        $conn->beginTransaction();
+        try
+        {
+            // on sauvegarde la carte de credit
+            $creditCard = $form->save();
+
+            // on cree une commande en base de données.
+            $order = new IStoreOrder();
+            $order->setDate(date('Y-m-d'));
+            $order->setCreditCardId($creditCard->getId());
+            $order->setUserId($user->getId());
+            $order->save();
+
+            // on sauvegarde une copie de l'adresse du client
+            //      pour la commande.
+            $orderAddress = new IStoreAddress();
+            $orderAddress->setStreet($address->getStreet());
+            $orderAddress->setCity($address->getCity());
+            $orderAddress->setZipcode($address->getZipcode());
+            $orderAddress->setCountry($address->getCountry());
+            $orderAddress->setOrderId($order->getId());
+            $orderAddress->save();
+
+            $order->setAddressId($orderAddress->getId());
+            $order->save();
+
+            // on sauvegarde chaque ligne de la commande
+            foreach ($shoppingCart->getItems() as $item)
+            {
+                $orderLine = new IStoreOrderLine();
+                $orderLine->setItemId($item->getId());
+                $orderLine->setOrderId($order->getId());
+                $orderLine->setQuantity($item->getQuantity());
+                $orderLine->save();
+            }
+            $conn->commit();
+
+            return $order;
+        }
+        catch (Exception $e)
+        {
+            $conn->rollBack();
+            throw $e;
+        }
+    }
+
+    /**
      *
      * @param <type> $order
      */
-//    private function sendOrder ($order)
+//    private function sendOrder ($order, $user)
 //    {
+//        $affiliate = $this->getRoute()->getObject();
+//        $affiliate->activate();
+//        // send an email to the affiliate
+//        ProjectConfiguration::registerZend();
+//        $mail = new Zend_Mail();
+//        $mail->setBodyText(<<<EOF
+//
+//        EOF
+//        );
+//        $mail->setFrom('jobeet@example.com', 'Jobeet Bot');
+//        $mail->addTo($user->getEmailAddress());
+//        $mail->setSubject('Confirmation de votre commande sur i-store');
+//        $mail->send();
+//        
+//        
+//
+//
 //        $affiliate = $this->getRoute()->getObject();
 //        $affiliate->activate();
 //        // send an email to the affiliate

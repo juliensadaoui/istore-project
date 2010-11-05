@@ -13,6 +13,24 @@
 class IStoreOrder extends BaseIStoreOrder
 {
     /**
+     *  Retourne le prix total de la commande.
+     *
+     * @return integer  prix total de la commande
+     */
+    public function getTotalPrice()
+    {
+        $totalPrice = 0;
+        $orderLines = $this->getOrderLines();
+
+        foreach ($orderLines as $orderLine)
+        {
+            $totalPrice += $orderLine->getQuantity() * $orderLine->getIStoreItem()->getUnitCost();
+        }
+
+        return $totalPrice;
+    }
+
+    /**
      *  Retourne toutes les lignes de commande de la commande
      *      dans une collection d'objet Doctrine
      *

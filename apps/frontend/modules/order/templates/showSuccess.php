@@ -7,12 +7,31 @@
         </span>
 </div>
 
+
+<?php /* récupere les variables avant l'affichage */
+    $value = $user->getProfile()->getCivility();
+    $civility = Doctrine::getTable('IStoreCustomer')->getCivilityTypes();
+    $address = $user->getAddress();
+?>
 <div class="center_content">
     <div id="cart">
         <h1>
             Votre commande est complète
         </h1>
-                <p>Le numéro de la commande est <?php echo $order->getId(); ?></p>
+        <!-- Informations sur la commande est le client -->
+        <div class="items_count">
+            Le numéro de la commande est <?php echo $order->getId(); ?><br />
+            Le prix total de votre commande est de <?php echo $order->getTotalPrice(); ?>&nbsp;€<br /><br />
+
+            <?php
+
+            echo  $civility[$value] . ' ' . ucfirst($user->getLastName()) . ' ' . $user->getFirstName() . '<br />'
+                    . $address->getStreet() . '<br />' .
+                    $address->getZipcode() . ' ' . $address->getCity() . ' - ' . $address->getCountry() . '<br />';
+
+            ?>
+        </div>
+
         <table class="cart_items">
             <?php $headers = array("", "Category", "Nom", "Quantité", "Prix Unitaire", "Montant"); ?>
             <thead>
@@ -28,8 +47,12 @@
                     <td class="headerline"></td>
                     <?php endfor; ?>
                 </tr>
-                <?php $orderLines = $order->getOrderLines(); ?>
+
+
+                 <!--   Liste des lignes de la commande sous forme de tableau -->
+                 <?php $orderLines = $order->getOrderLines(); ?>
                 <?php foreach ($orderLines as $i => $orderLine): ?>
+
 
                 <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
 
@@ -58,6 +81,11 @@
             <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="items_count">      
+            <br/>Un court e-mail de confirmation a été envoyé à :
+                    <?php echo $user->getEmailAddress(); ?> <br /><br />
+                 Merci de votre achat sur i-store.
+        </div>
     </div>
 </div>
 

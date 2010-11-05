@@ -15,7 +15,7 @@
     <h1><?php echo ucfirst($category); ?></h1>
     <?php if ($category->countActiveItem() != 0): ?>
 
-        <div class="items_count"><?php echo $category->countActiveItem(); ?> articles dans la catégorie</div>
+        <div class="items_count"><?php echo $category->countActiveItem(); ?> article(s) dans la catégorie</div>
         <?php include_partial('item/list', array('items' => $pager->getResults())) ?>
 
 
