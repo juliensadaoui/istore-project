@@ -221,7 +221,7 @@ IStoreItem:
     IStoreCategory: carte_graphique
     IStoreBrand: geforce
   boit_1:
-    name: Boitier Antec + alimentation 500Watts
+    name: Boitier Antec
     image: intel
     description: Discret et silencieux
     unit_cost: 119

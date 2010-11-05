@@ -143,12 +143,37 @@ li.error span
     width: 200px;
     height: 100px;
     border: 1px solid #9A9A9A;
+    padding-top: 10px;
 }
 
 #menu_order
 {
     margin-top: 20px;
 }
+
+.menu_customer_img
+{
+    width: 80px;
+}
+
+#menu_account img
+{
+    float: left;
+    border: 0 none;
+}
+
+.menu_customer_text
+{
+    float: left;
+    width: 100px;
+}
+
+.menu_customer_text span
+{
+    color: #A29D9D;
+    font-weight: bold;
+}
+
 
 #center_content_customer
 {
